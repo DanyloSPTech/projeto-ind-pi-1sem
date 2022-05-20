@@ -16,9 +16,10 @@ body{
 }
 
 .container{
-    height: 100%;
+    margin: 0;
     width: 90%;
     display: flex;
+    justify-content: center;
 }
 
 .navBar .container{
@@ -105,3 +106,115 @@ body{
 }
 
 /* Fim Menu */
+
+/* Inicio Banner Home */
+
+.banner{
+    background-image: url('../images/bgBanner.jpeg');
+    height: 500px;
+    width: 100%;
+    background-position-x: center;
+    background-position-y: center;
+    color: #FFFFFF;
+    display: flex;
+}
+
+.banner h1{
+    font-family: 'Roboto';
+    font-size: 48px;
+    font-weight: 500;
+}
+
+/* Fim Banner Home */
+
+/* Inicio Corpo Home */
+
+.corpo{
+    display: flex;
+    justify-content: center;
+}
+
+.areaDivisao{
+    display: flex;
+    flex-direction: row;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.peqBarra{
+    height: 38px;
+    width: 12px;
+    background-color: #0c0f22;
+}
+
+.barraLonga{
+    height: 12px;
+    width: 90%;
+    background-color: #0c0f22;
+    display: flex;
+}
+
+.corpo .container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.corpo p{
+    margin: 0;
+}
+
+.areaTable{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+/* Inicio Tabela Noticias */
+
+.tableNoticias{
+    width: 65%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.tableNoticiasTitulo{
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-color: #0c0f22;
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 12px;
+    justify-content: center;
+}
+
+/* Fim Tabela Noticias */
+
+/* Inicio Tabela Topicos */
+
+.tableTopicos{
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.tableTopicosTitulo{
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-color: #0c0f22;
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 12px;
+    justify-content: center;
+}
