@@ -1,0 +1,1 @@
+##Arquivo para salvar pasta no git! será apagado quando tiver conteúdo do portal na pasta.
