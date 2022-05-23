@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="navBar">
+            <div class="container">
+                <a href="index.html"><h1>Portal e+sport</h1></a>
+                <div class="barraMenu"></div>
+                <ul class="listaMenu">
+                    <li class="itemMenu">Notícias</li>
+                    <li class="itemMenu">Tópicos</li>
+                    <li class="itemMenu">Eventos</li>
+                </ul>
+                <a href="login.html"><button class="btnLogin">Login</button></a>
+                <a href="cadastro.html"><button class="btnCadastro">Cadastre-se</button></a>
+            </div>
+        </div>
+        <div class="bannerCadastro">
+            <div class="cardCadastro">
+                <h1>Realize seu cadastro</h1>
+                <div class="colunaCadastro">
+                    <p>Username</p>
+                    <input id="inpUsername" placeholder="Ex: mark1337">
+                    <p>Nome</p>
+                    <input id="inpNome" placeholder="Marcos Henrique">
+                </div>
+                <div class="colunaCadastro">
+                    <p>Senha</p>
+                    <input id="inpSenha" type="password" placeholder="******">
+                    <p>Confirmar Senha</p>
+                    <input id="inpConfirmarSenha" type="password" placeholder="******">
+                </div>
+                <p>Email</p>
+                <input id="inpEmail" placeholder="Ex: marcos.henr@gmail.com">
+                <p>Data de Nascimento</p>
+                <input id="inpDtNasc" type="date">
+                <p>Selecione o jogo que você mais gosta de acompanhar</p>
+                <select id="slcJogo" class="slcJogo">
+                    <option value="0">-- Selecione Uma Opção --</option>
+                    <option value="1">Counter-Strike: Global Offensive</option>
+                    <option value="2">Valorant</option>
+                    <option value="3">League of Legends</option>
+                    <option value="4">Rainbow Six</option>
+                    <option value="5">Rocket League</option>
+                </select>
+                
+                <button>Cadastro</button>
+            </div>
+        </div>
+    </body>
+</html>
