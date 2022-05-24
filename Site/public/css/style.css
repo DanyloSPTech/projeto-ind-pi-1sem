@@ -391,7 +391,7 @@ a:hover{
 
 .cardCadastro{
     display: flex;
-    height: 90vh;
+    height: 88vh;
     width: 40vw;
     background-color: #0c0f22;
     border-radius: 15px;
@@ -449,12 +449,19 @@ a:hover{
     justify-content: space-around;
     height: 40px;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 60px;
+}
+
+.campoColunaCadastro{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .colunaCadastro input{
-    width: 25%;
-    color: peru;
+    width: 85%;
 }
 
 .slcJogo{
@@ -464,5 +471,9 @@ a:hover{
     font-size: 18px;
     border-radius: 15px;
     border: none;
+}
+
+#txtSlcJogo{
+    margin-top: 50px;
 }
 /* Fim Tela Cadastro */
