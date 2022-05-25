@@ -37,6 +37,20 @@ function cadastrar(){
     if(jogo == 0){
         alert("Informe um jogo de preferência!");
         cadastroValido = false;
+    }else{
+        if(jogo == 1){
+            jogo = 'Counter-Strike: Global Offensive';
+        }else if(jogo == 2){
+            jogo = 'Valorant';
+        }else if(jogo == 3){
+            jogo = 'League of Legends';
+        }else if(jogo == 4){
+            jogo = 'Rainbow Six';
+        }else if(jogo == 5){
+            jogo = 'Rocket League';
+        }else{
+            jogo = 'INVALIDO';
+        }
     }
 
     if(cadastroValido){
@@ -70,7 +84,7 @@ function cadastrar(){
                 console.log("resposta: ", resposta);
     
                 if (resposta.ok) {
-                    alert("CADASTRADO!");
+                    window.location = "login.html";
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
@@ -79,4 +93,51 @@ function cadastrar(){
             });
         }
     }
+}
+
+function logar(){
+    var emailVar = inpEmail.value;
+    var passVar = inpSenha.value;
+
+
+    if (emailVar == '' || passVar == ''){
+        alert("Preencha todos os campos!");
+    }else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1 || emailVar.indexOf(".") < emailVar.indexOf("@")){
+        alert("Email inválido!");
+    }else {
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: passVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.NIVEL_ACESSO = json.nivelAcesso;
+                    
+                    window.location = "index.html";
+
+                });
+
+            } else {
+                alert("Auntenticação Falhou!");
+            }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+        }
 }

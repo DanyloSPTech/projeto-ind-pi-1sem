@@ -113,6 +113,15 @@ a:hover{
     color: #FFFFFF;
 }
 
+.navBar p{
+    color: #FFFFFF;
+    font-size: 22px;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-family: 'Inria Sans';
+    font-weight: 400;
+}
+
 /* Fim Menu */
 
 /* Inicio Banner Home */

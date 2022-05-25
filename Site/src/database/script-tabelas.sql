@@ -3,58 +3,33 @@
 -- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
 
 /* para workbench - local - desenvolvimento */
-CREATE DATABASE acquatec;
+CREATE DATABASE PortalEsport;
 
-USE acquatec;
+USE PortalEsport;
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50)
+CREATE TABLE Usuario (
+	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR (20) NOT NULL,
+    nome VARCHAR (60) NOT NULL,
+    email VARCHAR (25)  NOT NULL,
+    senha VARCHAR (20) NOT NULL,
+    dataNasc DATE NOT NULL,
+    jogo VARCHAR (30)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-); 
+CREATE TABLE Topico (
+	idTopico INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR (75) NOT NULL,
+    texto VARCHAR (255) NOT NULL
+)AUTO_INCREMENT = 1337;
 
-CREATE TABLE medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
+CREATE TABLE Mensagem (
+	fkTopico INT NOT NULL,
+    fkUsuario INT NOT NULL,
+    idMensagem INT NOT NULL,
+    titulo VARCHAR (75) NOT NULL,
+    texto VARCHAR (255) NOT NULL,
+    FOREIGN KEY (fkTopico) REFERENCES Topico (idTopico),
+    FOREIGN KEY (fkUsuario) REFERENCES Usuario (idUsuario),
+    PRIMARY KEY (idMensagem, fkTopico, fkUsuario)
 );
-
-
-
-
-/* para sql server - remoto - produção */
-
-CREATE TABLE usuario (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-);
-
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
-); 
-
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
-);
-
-

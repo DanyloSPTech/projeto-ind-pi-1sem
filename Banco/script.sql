@@ -9,7 +9,8 @@ CREATE TABLE Usuario (
     email VARCHAR (25)  NOT NULL,
     senha VARCHAR (20) NOT NULL,
     dataNasc DATE NOT NULL,
-    jogo VARCHAR (30)
+    jogo VARCHAR (50) NOT NULL,
+    nivelAcesso INT NOT NULL
 );
 
 CREATE TABLE Topico (
