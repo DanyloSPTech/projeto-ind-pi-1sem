@@ -13,8 +13,6 @@ function cadastrar(){
     if(nickname == ''){
         alert("Informe um nickname!");
         cadastroValido = false;
-        var inpNickname = document.querySelector('#inpUsername');
-        inpNickname.classList.add("erro");
     }
     if(nome == ''){
         alert("Informe um nome!");
@@ -52,7 +50,33 @@ function cadastrar(){
             cadastroValido = false;
         }
         if(cadastroValido){
-            alert("TUDO VÁLIDO!");
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    usernameServer: nickname,
+                    nomeServer: nome,
+                    emailServer: email,
+                    senhaServer: senha,
+                    dataNascServer: dataNasc,
+                    jogoServer: jogo
+                })
+            }).then(function (resposta) {
+    
+                console.log("resposta: ", resposta);
+    
+                if (resposta.ok) {
+                    alert("CADASTRADO!");
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
         }
     }
 }

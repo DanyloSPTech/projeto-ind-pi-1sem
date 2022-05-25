@@ -5,8 +5,9 @@ USE PortalEsport;
 CREATE TABLE Usuario (
 	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR (20) NOT NULL,
-    senha VARCHAR (20) NOT NULL,
     nome VARCHAR (60) NOT NULL,
+    email VARCHAR (25)  NOT NULL,
+    senha VARCHAR (20) NOT NULL,
     dataNasc DATE NOT NULL,
     jogo VARCHAR (30)
 );

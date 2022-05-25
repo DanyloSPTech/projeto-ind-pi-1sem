@@ -477,12 +477,3 @@ a:hover{
     margin-top: 50px;
 }
 /* Fim Tela Cadastro */
-
-/* Validações */
-
-
-/* AINDA NÃO FUNCIONA, CORRIGIR ISSO */
-.erro{
-    border: 5px solid #FF0000;
-    color: #FF0000;
-}
