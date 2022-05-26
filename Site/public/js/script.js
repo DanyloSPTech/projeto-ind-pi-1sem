@@ -278,7 +278,7 @@ function publicarMateria(){
         alert("Erro na identificação do jornalista!");
     }else {
 
-        fetch("materia/novaMateria", {
+        fetch("/materia/novaMateria", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
