@@ -261,3 +261,46 @@ function deslogar(){
     sessionStorage.clear();
     window.location = "../index.html";
 }
+
+function publicarMateria(){
+    var titulo = inpTituloMateria.value;
+    var corpo = inpTituloMateria.value;
+    var jogo = slcJogo.value;
+    var fkJornalista = Number(sessionStorage.getItem('ID_USUARIO'));
+
+    if(titulo == ''){
+        alert("Informe um titulo para a matéria!");
+    }else if(corpo == ''){
+        alert("Informe um corpo para a matéria!");
+    }else if(jogo == ''){
+        alert("Informe um jogo para a matéria!");
+    }else if(fkJornalista == 0){
+        alert("Erro na identificação do jornalista!");
+    }else {
+
+        fetch("materia/novaMateria", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                titulo: titulo,
+                corpo: corpo,
+                jogo: jogo,
+                fkJornalista: fkJornalista,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                alert("MATERIA PUBLICADA!");
+            } else {
+                throw ("Houve um erro ao tentar publicar a matéria!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    }
+}

@@ -29,3 +29,11 @@ CREATE TABLE Mensagem (
     FOREIGN KEY (fkUsuario) REFERENCES Usuario (idUsuario),
     PRIMARY KEY (idMensagem, fkTopico, fkUsuario)
 );
+
+CREATE TABLE Materia (
+	idMateria INT PRIMARY KEY AUTO_INCREMENT,
+    tituloMateria VARCHAR (30) NOT NULL,
+    corpoMateria VARCHAR (400) NOT NULL,
+    fkJornalista INT,
+    FOREIGN KEY (fkJornalista) REFERENCES Usuario (idUsuario)
+)
