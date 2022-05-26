@@ -10,51 +10,27 @@
     <body>
         <div class="navBar">
             <div class="container">
-                <a href="../index.html"><h1>Portal e+sport</h1></a>
+                <h1 href="../index.html">Portal e+sport</h1>
                 <div class="barraMenu"></div>
                 <ul class="listaMenu">
                     <li class="itemMenu">Notícias</li>
                     <li class="itemMenu">Tópicos</li>
                     <li class="itemMenu">Eventos</li>
                 </ul>
-                <a href="../login.html"><button class="btnLogin">Login</button></a>
-                <a href="../cadastro.html"><button class="btnCadastro">Cadastre-se</button></a>
+                <a href="login.html" id="btnDeslogado1"><button class="btnLogin">Login</button></a>
+                <a href="cadastro.html" id="btnDeslogado2"><button class="btnCadastro">Cadastre-se</button></a>
+                <p id="nomeUserLogado" style="display: none;"></p>
+                <button id="btnDeslogar" class="btnCadastro" onclick="deslogar()">Sair</button>
             </div>
         </div>
-        <div class="bannerCadastro">
+        <div class="bannerNovaMateria">
             <div class="cardCadastro">
-                <h1>Cadastrar Novo Jornalista</h1>
-                <div class="colunaCadastro">
-                    <div class="campoColunaCadastro">
-                        <p>Username</p>
-                        <input id="inpUsername" placeholder="Ex: mark1337">
-                    </div>
-                    <div class="campoColunaCadastro">
-                        <p>Nome</p>
-                        <input id="inpNome" placeholder="Marcos Henrique">
-                    </div>
-                </div>
-                <div class="colunaCadastro">
-                    <div class="campoColunaCadastro">
-                        <p>Senha</p>
-                        <input id="inpSenha" type="password" placeholder="******">
-                    </div>
-                    <div class="campoColunaCadastro">
-                        <p>Confirmar Senha</p>
-                        <input id="inpConfirmarSenha" type="password" placeholder="******">
-                    </div>
-                </div>
-                <div class="colunaCadastro">
-                    <div class="campoColunaCadastro">
-                        <p>Email</p>
-                    <input id="inpEmail" placeholder="Ex: marcos.henr@gmail.com">
-                    </div>
-                    <div class="campoColunaCadastro">
-                        <p>Data de Nascimento</p>
-                        <input id="inpDtNasc" type="date">
-                    </div>
-                </div>
-                <p id="txtSlcJogo">Selecione o jogo em que o jornalista irá cobrir</p>
+                <h1>Nova Matéria</h1>
+                <p>Título da Matéria</p>
+                <input id="inpTituloMateria" placeholder="Ex: O Major é Nosso!">
+                <p>Escreva a Matéria nessa área:</p>
+                <textarea id="corpoMateria" placeholder="Evento acontecerá no Rio de Janeiro no mês de novembro..."></textarea>
+                <p id="txtSlcJogo">Essa matéria cobre qual jogo?</p>
                 <select id="slcJogo" class="slcJogo">
                     <option value="0">-- Selecione Uma Opção --</option>
                     <option value="1">Counter-Strike: Global Offensive</option>
@@ -71,3 +47,4 @@
 </html>
 
 <script src="../js/script.js"></script>
+<script src="../js/acesso.js"></script>

@@ -6,5 +6,6 @@ if(nivelAcesso > 0){
     btnDeslogado1.style.display = 'none';
     btnDeslogado2.style.display = 'none';
     nomeUserLogado.style.display = 'block';
+    btnDeslogar.style.display = 'block';
     nomeUserLogado.innerHTML = `Olá ${nomeUser}`;
 }
