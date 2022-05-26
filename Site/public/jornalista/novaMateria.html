@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <div class="navBar">
+            <div class="container">
+                <a href="../index.html"><h1>Portal e+sport</h1></a>
+                <div class="barraMenu"></div>
+                <ul class="listaMenu">
+                    <li class="itemMenu">Notícias</li>
+                    <li class="itemMenu">Tópicos</li>
+                    <li class="itemMenu">Eventos</li>
+                </ul>
+                <a href="../login.html"><button class="btnLogin">Login</button></a>
+                <a href="../cadastro.html"><button class="btnCadastro">Cadastre-se</button></a>
+            </div>
+        </div>
+        <div class="bannerCadastro">
+            <div class="cardCadastro">
+                <h1>Cadastrar Novo Jornalista</h1>
+                <div class="colunaCadastro">
+                    <div class="campoColunaCadastro">
+                        <p>Username</p>
+                        <input id="inpUsername" placeholder="Ex: mark1337">
+                    </div>
+                    <div class="campoColunaCadastro">
+                        <p>Nome</p>
+                        <input id="inpNome" placeholder="Marcos Henrique">
+                    </div>
+                </div>
+                <div class="colunaCadastro">
+                    <div class="campoColunaCadastro">
+                        <p>Senha</p>
+                        <input id="inpSenha" type="password" placeholder="******">
+                    </div>
+                    <div class="campoColunaCadastro">
+                        <p>Confirmar Senha</p>
+                        <input id="inpConfirmarSenha" type="password" placeholder="******">
+                    </div>
+                </div>
+                <div class="colunaCadastro">
+                    <div class="campoColunaCadastro">
+                        <p>Email</p>
+                    <input id="inpEmail" placeholder="Ex: marcos.henr@gmail.com">
+                    </div>
+                    <div class="campoColunaCadastro">
+                        <p>Data de Nascimento</p>
+                        <input id="inpDtNasc" type="date">
+                    </div>
+                </div>
+                <p id="txtSlcJogo">Selecione o jogo em que o jornalista irá cobrir</p>
+                <select id="slcJogo" class="slcJogo">
+                    <option value="0">-- Selecione Uma Opção --</option>
+                    <option value="1">Counter-Strike: Global Offensive</option>
+                    <option value="2">Valorant</option>
+                    <option value="3">League of Legends</option>
+                    <option value="4">Rainbow Six</option>
+                    <option value="5">Rocket League</option>
+                </select>
+                
+                <button onclick="cadastrarJornalista()">Cadastro</button>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script src="../js/script.js"></script>
