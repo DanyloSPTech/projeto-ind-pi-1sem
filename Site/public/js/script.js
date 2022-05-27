@@ -264,7 +264,7 @@ function deslogar(){
 
 function publicarMateria(){
     var titulo = inpTituloMateria.value;
-    var corpo = inpTituloMateria.value;
+    var corpo = corpoMateria.value;
     var jogo = slcJogo.value;
     var fkJornalista = Number(sessionStorage.getItem('ID_USUARIO'));
 
@@ -277,6 +277,20 @@ function publicarMateria(){
     }else if(fkJornalista == 0){
         alert("Erro na identificação do jornalista!");
     }else {
+
+        if(jogo == 1){
+            jogo = 'Counter-Strike: Global Offensive';
+        }else if(jogo == 2){
+            jogo = 'Valorant';
+        }else if(jogo == 3){
+            jogo = 'League of Legends';
+        }else if(jogo == 4){
+            jogo = 'Rainbow Six';
+        }else if(jogo == 5){
+            jogo = 'Rocket League';
+        }else{
+            jogo = 'INVALIDO';
+        }
 
         fetch("/materia/novaMateria", {
             method: "POST",
@@ -295,6 +309,9 @@ function publicarMateria(){
 
             if (resposta.ok) {
                 alert("MATERIA PUBLICADA!");
+                inpTituloMateria.value = '';
+                corpoMateria.value = '';
+                slcJogo.value = 0;
             } else {
                 throw ("Houve um erro ao tentar publicar a matéria!");
             }
@@ -303,4 +320,23 @@ function publicarMateria(){
         });
 
     }
+}
+
+function listarMaterias(){
+    fetch("/materia/listar").then(function (resposta){
+
+        if(resposta.ok){
+            if(resposta.status == 204){
+                //CONTINUAR DAQUI
+            }
+            resposta.json().then(function (resposta){
+
+            });
+        }else {
+            throw ('Houve um erro na API!');
+        }
+
+    }).catch(function (resposta) {
+
+    });
 }

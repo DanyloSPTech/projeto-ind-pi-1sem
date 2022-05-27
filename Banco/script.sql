@@ -32,8 +32,9 @@ CREATE TABLE Mensagem (
 
 CREATE TABLE Materia (
 	idMateria INT PRIMARY KEY AUTO_INCREMENT,
-    tituloMateria VARCHAR (30) NOT NULL,
-    corpoMateria VARCHAR (400) NOT NULL,
+    titulo VARCHAR (30) NOT NULL,
+    corpo VARCHAR (400) NOT NULL,
+    jogo VARCHAR (80) NOT NULL,
     fkJornalista INT,
     FOREIGN KEY (fkJornalista) REFERENCES Usuario (idUsuario)
-)
+);
