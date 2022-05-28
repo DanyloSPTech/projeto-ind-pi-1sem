@@ -330,13 +330,29 @@ function listarMaterias(){
                 //CONTINUAR DAQUI
             }
             resposta.json().then(function (resposta){
+                console.log("Matérias recebidas: ", JSON.stringify(resposta));
 
+                var tabela = document.getElementById("tabela_noticias");
+
+                for(var i = 0; i < resposta.length; i++){
+                    var materia = resposta[i];
+
+                    var cedula = document.createElement("div");
+                    var titulo = document.createElement("h1");
+
+                    titulo.innerHTML = `${materia.titulo}`;
+
+                    cedula.className = "cedulaNoticia";
+
+                    cedula.appendChild(titulo);
+                    tabela.appendChild(cedula);
+                }
             });
         }else {
             throw ('Houve um erro na API!');
         }
 
     }).catch(function (resposta) {
-
+        console.error(resposta);
     });
 }

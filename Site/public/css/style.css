@@ -225,6 +225,16 @@ a:hover{
     background-color: #202542;
     border: solid #0c0f22 2px;
     height: 40px;
+    align-items: center;
+}
+
+.cedulaNoticia h1{
+    color: #FFFFFF;
+    font-family: 'Inria Sans';
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0;
+    margin-left: 25px;
 }
 
 /* Fim Tabela Noticias */
