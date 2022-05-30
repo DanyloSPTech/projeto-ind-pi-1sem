@@ -1,3 +1,5 @@
+const res = require("express/lib/response");
+
 // Validações Campos de Cadastro
 function cadastrar(){
     var nickname = inpUsername.value;
@@ -356,3 +358,42 @@ function listarMaterias(){
         console.error(resposta);
     });
 }
+
+// function pegarDadosGrafico(){
+//     fetch("usuario/contarJogo").then(function (resposta) {
+//         if(resposta.ok){
+//             if(resposta == 204){
+//                 //CONSERTAR AQ
+//             }
+//             resposta.json().then(function (resposta) {
+//                 console.log("Jogos e seus usuários recebidos: ", JSON.stringify(resposta));
+      
+//                 var pessoasCs = 0;
+//                 var pessoasVal = 0;
+//                 var pessoasLol = 0;
+//                 var pessoasR6 = 0;
+//                 var pessoasRl = 0;
+      
+//                 for(var i = 0; i < resposta.length; i++){
+//                     var jogo = resposta[i];
+      
+//                     if(jogo.jogo == 'Counter-Strike: Global Offensive'){
+//                         pessoasCs = jogo.QtdePessoas;
+//                     }else if(jogo.jogo == 'Valorant'){
+//                         pessoasVal = jogo.QtdePessoas;
+//                     }else if(jogo.jogo == 'League of Legends'){
+//                         pessoasLol = jogo.QtdePessoas;
+//                     }else if(jogo.jogo == 'Rainbow Six'){
+//                         pessoasR6 = jogo.QtdePessoas;
+//                     }else if(jogo.jogo == 'Rocket League'){
+//                         pessoasRl = jogo.QtdePessoas;
+//                     }
+//                 }
+//             });
+//         }else{
+//             throw ('Houve um erro na API!');
+//         }
+//       }).catch(function (resposta) {
+//         console.error(resposta);
+//       });
+// }

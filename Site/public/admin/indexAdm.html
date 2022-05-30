@@ -22,8 +22,40 @@
                 <button>Sair</button>
             </div>
             <div class="conteudoAdm">
-    
+                <div class="areaKpi">
+                    <div class="linhaKpi">
+                        <div class="cardKpi">
+                            <h1>Total de Usuários</h1>
+                            <h3 id="txtQtdeUsuarios">8</h3>
+                        </div>
+                        <div class="cardKpi">
+                            <h1>Total de Jornalistas</h1>
+                            <h3 id="txtQtdeJornalistas">2</h3>
+                        </div>
+                    </div>
+                    <div class="linhaKpi">
+                        <div class="cardKpi">
+                            <h1>Jogo destaque</h1>
+                            <h3 id="txtKpiJogoDestaque">Counter-Strike: Global Offensive</h3>
+                        </div>
+                        <div class="cardKpi">
+                            <h1>Interessados nesse Jogo</h1>
+                            <h3 id="txtKpiInteressadosJogo">12 Usuários</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="areaGrafico">
+                    <div class="cardGrafico">
+                        <canvas id="canvasGrafico">
+
+                        </canvas>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/graficoDash.js"></script>
+<script src="../js/carregarKpis.js"></script>

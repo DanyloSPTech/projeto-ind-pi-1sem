@@ -42,9 +42,46 @@ function cadastrarJornalista(username, nome, email, senha, dataNasc, jogo){
     return database.executar(instrucao);
 }
 
+function contarJogo(){
+    var instrucao = `
+        SELECT jogo, COUNT(jogo) AS 'QtdePessoas' FROM usuario GROUP BY jogo;
+    `;
+
+    console.log("Executando a instrução SQL: \n " + instrucao);
+    return database.executar(instrucao);
+}
+
+function jogoDestaque(){
+    var instrucao = `
+        SELECT jogo, COUNT(jogo) AS 'QtdeAparicoes' FROM usuario GROUP BY jogo;
+    `;
+    console.log("Executando a instrução SQL: \n " + instrucao);
+    return database.executar(instrucao);
+}
+
+function contarUsuario(){
+    var instrucao = `
+        SELECT COUNT(idUsuario) AS 'QtdeUsuarios' FROM usuario WHERE nivelAcesso = 1;
+    `;
+    console.log("Executando a instrução SQL: \n " + instrucao);
+    return database.executar(instrucao);
+}
+
+function contarJornalista(){
+    var instrucao = `
+        SELECT COUNT(idUsuario) AS 'QtdeJornalistas' FROM usuario WHERE nivelAcesso = 2;
+    `;
+    console.log("Executando a instrução SQL: \n " + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     cadastrarJornalista,
     listar,
+    contarJogo,
+    contarUsuario,
+    contarJornalista,
+    jogoDestaque
 };
