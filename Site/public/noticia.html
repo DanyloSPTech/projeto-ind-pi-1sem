@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body onload="selecionarMateria()">
+        <div class="navBar">
+            <div class="container">
+                <h1>Portal e+sport</h1>
+                <div class="barraMenu"></div>
+                <ul class="listaMenu">
+                    <li class="itemMenu">Notícias</li>
+                    <li class="itemMenu">Tópicos</li>
+                    <li class="itemMenu">Eventos</li>
+                </ul>
+                <a href="login.html" id="btnDeslogado1"><button class="btnLogin">Login</button></a>
+                <a href="cadastro.html" id="btnDeslogado2"><button class="btnCadastro">Cadastre-se</button></a>
+                <p id="nomeUserLogado" style="display: none;"></p>
+                <!--- Ajustes Necessários no btnDeslogar -->
+                <button id="btnDeslogar" style="display: none;" class="btnCadastro" onclick="deslogar()">Sair</button>
+            </div>
+        </div>
+        <div class="corpoMateria">
+            <div class="container">
+                <div class="areaNoticia">
+                    <h1 id="txtTitulo">
+                        O Major é Nosso!
+                    </h1>
+                    <p class="autor" id="txtAutor">
+                        Por: Roque Marques
+                    </p>
+                    <p id="txtCorpo">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam feugiat, turpis at pulvinar vulputate, 
+                        erat libero tristique tellus, nec bibendum odio risus sit amet ante. Aliquam erat volutpat. Nunc auctor. 
+                        Mauris pretium quam et urna. Fusce nibh. Duis risus. Curabitur sagittis hendrerit ante. Aliquam erat volutpat. 
+                        Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Duis condimentum augue id magna semper 
+                        rutrum. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Proin pede metus, vulputate 
+                        nec, fermentum fringilla, vehicula vitae, justo. Fusce consectetuer risus a nunc. Aliquam ornare wisi eu metus. 
+                        Integer pellentesque quam vel velit. Duis pulvinar. Maecenas ipsum velit, consectetuer eu, lobortis ut, dictum 
+                        at, dui. In rutrum. Sed ac dolor sit amet purus malesuada congue. In laoreet, magna id viverra tincidunt, sem 
+                        odio bibendum justo, vel imperdiet sapien wisi sed libero. Suspendisse sagittis ultrices augue. Mauris metus.
+                        Nunc dapibus tortor vel mi dapibus sollicitudin. Etiam posuere lacus quis dolor. Praesent id justo in neque 
+                        elementum ultrices. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. 
+                        In convallis. Fusce suscipit libero eget elit. Praesent vitae arcu tempor neque lacinia pretium. Morbi 
+                        imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus.
+                        Morbi a metus. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Nullam sapien sem, ornare ac, 
+                        nonummy non, lobortis a, enim. Nunc tincidunt ante vitae massa. Duis ante orci, molestie vitae, vehicula 
+                        venenatis, tincidunt ac, pede. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor 
+                        suscipit diam nulla vel leo. Etiam commodo dui eget wisi. Donec iaculis gravida nulla. Donec quis nibh at felis 
+                        congue commodo. Etiam bibendum elit eget erat.
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam feugiat, turpis at pulvinar vulputate, erat 
+                        libero tristique tellus, nec bibendum odio risus sit amet ante. Aliquam erat volutpat. Nunc auctor. Mauris 
+                        pretium quam et urna. Fusce nibh. Duis risus. Curabitur sagittis hendrerit ante. Aliquam erat volutpat. 
+                        Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Duis condimentum augue id magna semper 
+                        rutrum. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Proin pede metus, vulputate 
+                        nec, fermentum fringilla, vehicula vitae, justo. Fusce consectetuer risus a nunc. Aliquam ornare wisi eu metus.
+                        Integer pellentesque quam vel velit. Duis pulvinar.
+                        Etiam posuere quam ac quam. Maecenas aliquet accumsan leo. Nullam dapibus fermentum ipsum. Etiam quis quam. 
+                        Integer lacinia. Nulla est.
+                    </p>
+                </div>
+                <div class="tableTopicos">
+                    <div class="tableTopicosTitulo">
+                        <h1>Tópicos e Discussões</h1>
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                    <div class="cedulaTopico">
+    
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="secaoComentarios">
+                    <div class="tituloSecaoComentarios">
+                        <h1>Comentários da Comunidade</h1>
+                    </div>
+                    <div class="cardComentario">
+                        <h1 class="autorComentario">
+                            s0cramax
+                        </h1>
+                        <p class="mensagemComentario">
+                            RL é FODA!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script src="js/script.js"></script>

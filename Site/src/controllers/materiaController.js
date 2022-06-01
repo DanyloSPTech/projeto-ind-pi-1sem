@@ -57,8 +57,34 @@ function listar(req, res){
         );
 }
 
+function selecionarMateria(req, res){
+    var fkMateria = req.body.fkMateriaServer;
+    materiaModel.selecionarMateria(fkMateria)
+        .then(
+            function (resultado) {
+                console.log(`\nResultados encontrados: ${resultado.length}`);
+                console.log(`Resultados: ${JSON.stringify(resultado)}`);
+                if (resultado.length == 1) {
+                    console.log(resultado);
+                    res.json(resultado[0]);
+                } else if (resultado.length == 0) {
+                    res.status(403).send("Algo deu errado!");
+                } else {
+                    res.status(403).send("Mais de uma matéria selecionada!");
+                }
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     testar,
     criarMateria,
+    selecionarMateria,
     listar
 }

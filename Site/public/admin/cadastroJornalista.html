@@ -8,65 +8,73 @@
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <div class="navBar">
-            <div class="container">
-                <a href="../index.html"><h1>Portal e+sport</h1></a>
-                <div class="barraMenu"></div>
-                <ul class="listaMenu">
-                    <li class="itemMenu">Notícias</li>
-                    <li class="itemMenu">Tópicos</li>
-                    <li class="itemMenu">Eventos</li>
+
+        <div class="corpoAdm">
+            <div class="menuLateral">
+                <div class="tituloMenuLateral">
+                    <h1>Portal e+sport</h1>
+                    <h3>Administrador</h3>
+                </div>
+                <ul>
+                    <li>Dashboard</li>
+                    <li>Cadastrar Jornalista</li>
+                    <li>Lista Usuários</li>
                 </ul>
-                <a href="../login.html"><button class="btnLogin">Login</button></a>
-                <a href="../cadastro.html"><button class="btnCadastro">Cadastre-se</button></a>
+                <button>Sair</button>
+            </div>
+            <div class="conteudoAdm">
+                <div class="bannerCadastroJornalista">
+                    <div class="cardCadastro">
+                        <h1>Cadastrar Novo Jornalista</h1>
+                        <div class="colunaCadastro">
+                            <div class="campoColunaCadastro">
+                                <p>Username</p>
+                                <input id="inpUsername" placeholder="Ex: ap0kalipse">
+                            </div>
+                            <div class="campoColunaCadastro">
+                                <p>Nome</p>
+                                <input id="inpNome" placeholder="Roque Marques">
+                            </div>
+                        </div>
+                        <div class="colunaCadastro">
+                            <div class="campoColunaCadastro">
+                                <p>Senha</p>
+                                <input id="inpSenha" type="password" placeholder="******">
+                            </div>
+                            <div class="campoColunaCadastro">
+                                <p>Confirmar Senha</p>
+                                <input id="inpConfirmarSenha" type="password" placeholder="******">
+                            </div>
+                        </div>
+                        <div class="colunaCadastro">
+                            <div class="campoColunaCadastro">
+                                <p>Email</p>
+                            <input id="inpEmail" placeholder="Ex: roque.marq@gmail.com">
+                            </div>
+                            <div class="campoColunaCadastro">
+                                <p>Data de Nascimento</p>
+                                <input id="inpDtNasc" type="date">
+                            </div>
+                        </div>
+                        <div class="colunaCadastro campoSelect">
+                            <p id="txtSlcJogo">Selecione o jogo em que o jornalista irá cobrir</p>
+                            <select id="slcJogo" class="slcJogo">
+                                <option value="0">-- Selecione Uma Opção --</option>
+                                <option value="1">Counter-Strike: Global Offensive</option>
+                                <option value="2">Valorant</option>
+                                <option value="3">League of Legends</option>
+                                <option value="4">Rainbow Six</option>
+                                <option value="5">Rocket League</option>
+                            </select>
+                        </div>
+                        <div class="colunaCadastro">
+                            <button onclick="cadastrarJornalista()">Cadastro</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="bannerCadastroJornalista">
-            <div class="cardCadastro">
-                <h1>Cadastrar Novo Jornalista</h1>
-                <div class="colunaCadastro">
-                    <div class="campoColunaCadastro">
-                        <p>Username</p>
-                        <input id="inpUsername" placeholder="Ex: ap0kalipse">
-                    </div>
-                    <div class="campoColunaCadastro">
-                        <p>Nome</p>
-                        <input id="inpNome" placeholder="Roque Marques">
-                    </div>
-                </div>
-                <div class="colunaCadastro">
-                    <div class="campoColunaCadastro">
-                        <p>Senha</p>
-                        <input id="inpSenha" type="password" placeholder="******">
-                    </div>
-                    <div class="campoColunaCadastro">
-                        <p>Confirmar Senha</p>
-                        <input id="inpConfirmarSenha" type="password" placeholder="******">
-                    </div>
-                </div>
-                <div class="colunaCadastro">
-                    <div class="campoColunaCadastro">
-                        <p>Email</p>
-                    <input id="inpEmail" placeholder="Ex: roque.marq@gmail.com">
-                    </div>
-                    <div class="campoColunaCadastro">
-                        <p>Data de Nascimento</p>
-                        <input id="inpDtNasc" type="date">
-                    </div>
-                </div>
-                <p id="txtSlcJogo">Selecione o jogo em que o jornalista irá cobrir</p>
-                <select id="slcJogo" class="slcJogo">
-                    <option value="0">-- Selecione Uma Opção --</option>
-                    <option value="1">Counter-Strike: Global Offensive</option>
-                    <option value="2">Valorant</option>
-                    <option value="3">League of Legends</option>
-                    <option value="4">Rainbow Six</option>
-                    <option value="5">Rocket League</option>
-                </select>
-                
-                <button onclick="cadastrarJornalista()">Cadastro</button>
-            </div>
-        </div>
+        
     </body>
 </html>
 

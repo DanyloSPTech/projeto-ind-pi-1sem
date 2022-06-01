@@ -1,4 +1,4 @@
-const res = require("express/lib/response");
+// const res = require("express/lib/response");
 
 // Validações Campos de Cadastro
 function cadastrar(){
@@ -336,18 +336,34 @@ function listarMaterias(){
 
                 var tabela = document.getElementById("tabela_noticias");
 
-                for(var i = 0; i < resposta.length; i++){
+                var contadorNoticias = 0;
+
+                for(var i = resposta.length - 1; i > 0 && contadorNoticias < 10; i--){
                     var materia = resposta[i];
 
                     var cedula = document.createElement("div");
                     var titulo = document.createElement("h1");
+                    var conteudoDireita = document.createElement("div");
+                    var autor = document.createElement("p");
+                    var jogo = document.createElement("p");
 
                     titulo.innerHTML = `${materia.titulo}`;
+                    autor.innerHTML = `De: ${materia.nome}`;
+                    jogo.innerHTML = `Jogo: ${materia.jogo}`;
 
                     cedula.className = "cedulaNoticia";
+                    conteudoDireita.className = "conteudoDireita";
 
+                    conteudoDireita.appendChild(autor);
+                    conteudoDireita.appendChild(jogo);
+
+                    titulo.id = `${materia.idMateria}`;
                     cedula.appendChild(titulo);
+                    cedula.appendChild(conteudoDireita);
+                    cedula.id = `${materia.idMateria}`;
                     tabela.appendChild(cedula);
+
+                    contadorNoticias++;
                 }
             });
         }else {
@@ -359,41 +375,45 @@ function listarMaterias(){
     });
 }
 
-// function pegarDadosGrafico(){
-//     fetch("usuario/contarJogo").then(function (resposta) {
-//         if(resposta.ok){
-//             if(resposta == 204){
-//                 //CONSERTAR AQ
-//             }
-//             resposta.json().then(function (resposta) {
-//                 console.log("Jogos e seus usuários recebidos: ", JSON.stringify(resposta));
-      
-//                 var pessoasCs = 0;
-//                 var pessoasVal = 0;
-//                 var pessoasLol = 0;
-//                 var pessoasR6 = 0;
-//                 var pessoasRl = 0;
-      
-//                 for(var i = 0; i < resposta.length; i++){
-//                     var jogo = resposta[i];
-      
-//                     if(jogo.jogo == 'Counter-Strike: Global Offensive'){
-//                         pessoasCs = jogo.QtdePessoas;
-//                     }else if(jogo.jogo == 'Valorant'){
-//                         pessoasVal = jogo.QtdePessoas;
-//                     }else if(jogo.jogo == 'League of Legends'){
-//                         pessoasLol = jogo.QtdePessoas;
-//                     }else if(jogo.jogo == 'Rainbow Six'){
-//                         pessoasR6 = jogo.QtdePessoas;
-//                     }else if(jogo.jogo == 'Rocket League'){
-//                         pessoasRl = jogo.QtdePessoas;
-//                     }
-//                 }
-//             });
-//         }else{
-//             throw ('Houve um erro na API!');
-//         }
-//       }).catch(function (resposta) {
-//         console.error(resposta);
-//       });
-// }
+// Pegando ID da materia selecionada pelo usuario e salvando ela na sessão, depois 
+// Redirecionando usuário para a página noticia.html
+
+var tabela = document.getElementById('tableNoticias');
+
+tabela.addEventListener("click", function(e) {
+    var idMateria = e.target.id;
+    sessionStorage.ID_MATERIA = idMateria;
+    window.location = 'noticia.html';
+});
+
+function selecionarMateria(){
+    var fkMateria = sessionStorage.getItem('ID_MATERIA');
+    fetch("/materia/selecionarMateria", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            fkMateriaServer: fkMateria
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO selecionarMateria()!")
+        if(resposta.ok) {
+            console.log(resposta);
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                var titulo = document.getElementById("txtTitulo");
+                var autor = document.getElementById("txtAutor");
+                var corpo = document.getElementById("txtCorpo");
+
+                titulo.innerHTML = `${json.titulo}`;
+                autor.innerHTML = `Matéria por: ${json.nome}`;
+                corpo.innerHTML = `${json.corpo}`;
+            });
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+}

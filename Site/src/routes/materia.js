@@ -11,6 +11,10 @@ router.post("/novaMateria", function (req, res) {
     materiaController.criarMateria(req, res);
 });
 
+router.post("/selecionarMateria", function (req, res) {
+    materiaController.selecionarMateria(req, res);
+});
+
 router.get("/listar", function (req, res) {
     materiaController.listar(req, res);
 });

@@ -13,28 +13,22 @@ CREATE TABLE Usuario (
     nivelAcesso INT NOT NULL
 );
 
-CREATE TABLE Topico (
-	idTopico INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR (75) NOT NULL,
-    texto VARCHAR (255) NOT NULL
-)AUTO_INCREMENT = 1337;
+CREATE TABLE Materia (
+	idMateria INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR (30) NOT NULL,
+    corpo VARCHAR (2726) NOT NULL,
+    jogo VARCHAR (80) NOT NULL,
+    fkJornalista INT,
+    FOREIGN KEY (fkJornalista) REFERENCES Usuario (idUsuario)
+);
 
 CREATE TABLE Mensagem (
-	fkTopico INT NOT NULL,
+	fkMateria INT NOT NULL,
     fkUsuario INT NOT NULL,
     idMensagem INT NOT NULL,
     titulo VARCHAR (75) NOT NULL,
     texto VARCHAR (255) NOT NULL,
-    FOREIGN KEY (fkTopico) REFERENCES Topico (idTopico),
+    FOREIGN KEY (fkMateria) REFERENCES Materia (idMateria),
     FOREIGN KEY (fkUsuario) REFERENCES Usuario (idUsuario),
     PRIMARY KEY (idMensagem, fkTopico, fkUsuario)
-);
-
-CREATE TABLE Materia (
-	idMateria INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR (30) NOT NULL,
-    corpo VARCHAR (400) NOT NULL,
-    jogo VARCHAR (80) NOT NULL,
-    fkJornalista INT,
-    FOREIGN KEY (fkJornalista) REFERENCES Usuario (idUsuario)
 );

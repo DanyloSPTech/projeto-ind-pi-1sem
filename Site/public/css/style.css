@@ -226,15 +226,31 @@ a:hover{
     border: solid #0c0f22 2px;
     height: auto;
     align-items: center;
+    justify-content: space-between;
+}
+
+.conteudoDireita{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* justify-content: center; */
+}
+
+.conteudoDireita p{
+    color: #FFFFFF;
+    font-family: 'Inria Sans';
+    margin-right: 25px;
 }
 
 .cedulaNoticia h1{
     color: #FFFFFF;
     font-family: 'Inria Sans';
     font-weight: 400;
-    font-size: 50px;
+    font-size: 30px;
     margin: 0;
     margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .barraJogo{
@@ -243,7 +259,96 @@ a:hover{
     background-color: aqua;
 }
 
+.cedulaNoticia:hover{
+    background-color: #323857;
+    cursor: pointer;
+}
+
 /* Fim Tabela Noticias */
+
+/* Inicio Tela Noticia */
+
+.corpoMateria{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 80px;
+}
+
+.areaNoticia{
+    display: flex;
+    width: 65%;
+    flex-direction: column;
+    margin-right: 150px;
+}
+
+.areaNoticia h1{
+    font-family: 'Inria Sans';
+    font-size: 38px;
+}
+
+.areaNoticia p{
+    font-family: 'Inria Sans';
+    font-size: 18px;
+    text-align: justify;
+}
+
+.autor{
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.secaoComentarios{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tituloSecaoComentarios{
+    background-color: #0c0f22;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border: solid #0c0f22 2px;
+}
+
+.tituloSecaoComentarios h1{
+    color: #FFFFFF;
+    font-family: 'Inria Sans';
+    font-size: 36px;
+}
+
+.cardComentario{
+    background-color: #202542;
+    border: solid #0c0f22 2px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.autorComentario{
+    border-bottom: solid #0c0f22 2px;
+    color: #FFFFFF;
+    font-family: 'Inria Sans';
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+}
+
+.mensagemComentario{
+    color: #FFFFFF;
+    font-family: 'Inria Sans';
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 15px;
+}
+
+/* Fim Tela Noticia */
 
 /* Inicio Tabela Topicos */
 
@@ -485,6 +590,10 @@ a:hover{
     height: 40px;
     align-items: center;
     margin-top: 60px;
+}
+
+.campoSelect{
+    flex-direction: column;
 }
 
 .campoColunaCadastro{
