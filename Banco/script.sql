@@ -23,12 +23,11 @@ CREATE TABLE Materia (
 );
 
 CREATE TABLE Mensagem (
-	fkMateria INT NOT NULL,
-    fkUsuario INT NOT NULL,
-    idMensagem INT NOT NULL,
+	idMensagem INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     titulo VARCHAR (75) NOT NULL,
     texto VARCHAR (255) NOT NULL,
+	fkMateria INT NOT NULL,
+    fkUsuario INT NOT NULL,
     FOREIGN KEY (fkMateria) REFERENCES Materia (idMateria),
-    FOREIGN KEY (fkUsuario) REFERENCES Usuario (idUsuario),
-    PRIMARY KEY (idMensagem, fkTopico, fkUsuario)
+    FOREIGN KEY (fkUsuario) REFERENCES Usuario (idUsuario)
 );
