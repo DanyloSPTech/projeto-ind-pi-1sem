@@ -338,7 +338,7 @@ function listarMaterias(){
 
                 var contadorNoticias = 0;
 
-                for(var i = resposta.length - 1; i > 0 && contadorNoticias < 10; i--){
+                for(var i = resposta.length - 1; i >= 0 && contadorNoticias < 10; i--){
                     var materia = resposta[i];
 
                     var cedula = document.createElement("div");
@@ -416,4 +416,8 @@ function selecionarMateria(){
     }).catch(function (erro) {
         console.log(erro);
     })
+}
+
+function abrirModal(){
+    modalComentario.style.display = 'block';
 }

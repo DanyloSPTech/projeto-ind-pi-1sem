@@ -105,10 +105,23 @@
                     </div>
                 </div>
             </div>
+            <div class="modalNovoComentario" style="display: none" id="modalComentario">
+                <p class="tituloModal">
+                    Participe da discussão:
+                </p>
+                <div class="container">
+                    <p class="labelModal">
+                        Mensagem:
+                    </p>
+                    <textarea id="inpModal"></textarea>
+                    <button class="btnComentar">Comentar</button>
+                </div>
+            </div>
             <div class="container">
                 <div class="secaoComentarios">
                     <div class="tituloSecaoComentarios">
                         <h1>Comentários da Comunidade</h1>
+                        <button class="btnModal" onclick="abrirModal()">Entrar na Conversa</button>
                     </div>
                     <div class="cardComentario">
                         <h1 class="autorComentario">

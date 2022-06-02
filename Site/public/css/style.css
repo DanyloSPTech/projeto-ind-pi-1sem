@@ -310,7 +310,9 @@ a:hover{
     background-color: #0c0f22;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     border: solid #0c0f22 2px;
 }
 
@@ -346,6 +348,95 @@ a:hover{
     padding-top: 10px;
     padding-bottom: 10px;
     margin-left: 15px;
+}
+
+.modalNovoComentario{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+    width: 70vw;
+    background-color: #303657;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.tituloModal{
+    width: 100%;
+    font-family: 'Inria Sans';
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    background-color: #0c0f22;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-top: 0;
+}
+
+.modalNovoComentario .container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.labelModal{
+    font-family: 'Inria Sans';
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.modalNovoComentario textarea{
+    width: 100%;
+    height: 20vh;
+    border-radius: 8px;
+}
+
+.btnModal{
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    border: 2px solid #0c0f22;
+    height: auto;
+    width: 130px;
+    font-family: 'Inria Sans';
+    font-weight: 400;
+    font-size: 20px;
+    color: #0c0f22;
+    margin-top: 12px;
+}
+
+.btnModal:hover{
+    cursor: pointer;
+    background-color: #202542;
+    color: #FFFFFF;
+}
+
+.btnComentar{
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    border: 2px solid #0c0f22;
+    height: 40px;
+    width: 130px;
+    font-family: 'Inria Sans';
+    font-weight: 400;
+    font-size: 20px;
+    color: #0c0f22;
+    margin-top: 30px;
+}
+
+.btnComentar:hover{
+    cursor: pointer;
+    background-color: #202542;
+    color: #FFFFFF;
 }
 
 /* Fim Tela Noticia */
