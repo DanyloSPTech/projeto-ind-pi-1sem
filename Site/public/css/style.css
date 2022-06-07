@@ -414,6 +414,14 @@ a:hover{
     margin-top: 12px;
 }
 
+.spnClose{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    position: absolute;
+    border-radius: 20px;
+}
+
 .btnModal:hover{
     cursor: pointer;
     background-color: #202542;

@@ -419,5 +419,44 @@ function selecionarMateria(){
 }
 
 function abrirModal(){
-    modalComentario.style.display = 'block';
+    modalComentario.style.display = 'flex';
+}
+
+function fecharModal(){
+    modalComentario.style.display = 'none';
+}
+
+function novoComentario(){
+    var titulo = "EXCLUIR COLUNA";
+    var mensagem = inpModal.value;
+    alert(mensagem);
+    var fkMateria = sessionStorage.getItem('ID_MATERIA');
+    var fkUsuario = sessionStorage.getItem('ID_USUARIO');
+
+    if(fkUsuario == NaN || fkUsuario == 0){
+        alert("Apenas usuáios logados podem comentar!");
+    }else{
+        fetch("/comentarios/comentar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                titulo: titulo,
+                texto: mensagem,
+                fkMateria: fkMateria,
+                fkUsuario: fkUsuario
+            })
+        }).then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if(resposta.ok){
+                fecharModal();
+            }else{
+                throw ("Houve um erro ao tentar comentar na matéria!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
 }

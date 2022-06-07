@@ -24,7 +24,6 @@ CREATE TABLE Materia (
 
 CREATE TABLE Mensagem (
 	idMensagem INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    titulo VARCHAR (75) NOT NULL,
     texto VARCHAR (255) NOT NULL,
 	fkMateria INT NOT NULL,
     fkUsuario INT NOT NULL,
