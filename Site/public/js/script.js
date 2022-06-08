@@ -429,11 +429,10 @@ function fecharModal(){
 function novoComentario(){
     var titulo = "EXCLUIR COLUNA";
     var mensagem = inpModal.value;
-    alert(mensagem);
     var fkMateria = sessionStorage.getItem('ID_MATERIA');
     var fkUsuario = sessionStorage.getItem('ID_USUARIO');
 
-    if(fkUsuario == NaN || fkUsuario == 0){
+    if(fkUsuario == undefined || fkUsuario == 0){
         alert("Apenas usuáios logados podem comentar!");
     }else{
         fetch("/comentarios/comentar", {
@@ -452,6 +451,7 @@ function novoComentario(){
 
             if(resposta.ok){
                 fecharModal();
+                carregarComentarios();
             }else{
                 throw ("Houve um erro ao tentar comentar na matéria!");
             }
@@ -459,4 +459,56 @@ function novoComentario(){
             console.log(`#ERRO: ${resposta}`);
         });
     }
+}
+
+function carregarComentarios(){
+
+    var fkMateria = sessionStorage.getItem('ID_MATERIA');
+
+    fetch("/comentarios/listarComentariosMateria", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            fkMateria: fkMateria
+        })
+    }).then(function (resposta) {
+        console.log("Resposta Script: ", resposta);
+
+        if(resposta.ok){
+            resposta.json().then(function (resposta){
+                console.log("Comentários Recebidos: ", JSON.stringify(resposta));
+                for(var i = 0; i < resposta.length; i++){
+                    var comentario = resposta[i];
+
+                    var divCard = document.createElement("div");
+                    var h1Card = document.createElement("h1");
+                    var pCard = document.createElement("p");
+
+                    h1Card.innerHTML = comentario.username;
+                    pCard.innerHTML = comentario.texto;
+
+                    divCard.className = "cardComentario";
+                    h1Card.className = "autorComentario";
+                    pCard.className = "mensagemComentario";
+
+                    divCard.appendChild(h1Card);
+                    divCard.appendChild(pCard);
+
+                    secaoComentarios.appendChild(divCard);
+
+                    console.log(comentario.username);
+                    console.log(comentario.texto);
+                    console.log(comentario.jogo);
+                }
+            });
+            
+        }else{
+            throw ("Houve um erro ao listar os comentários da matéria!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
 }

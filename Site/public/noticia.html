@@ -7,10 +7,10 @@
         <title>Document</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <body onload="selecionarMateria()">
+    <body onload="selecionarMateria(), carregarComentarios()">
         <div class="navBar">
             <div class="container">
-                <h1>Portal e+sport</h1>
+                <a href="index.html"><h1>Portal e+sport</h1></a>
                 <div class="barraMenu"></div>
                 <ul class="listaMenu">
                     <li class="itemMenu">Notícias</li>
@@ -119,18 +119,10 @@
                 </div>
             </div>
             <div class="container">
-                <div class="secaoComentarios">
+                <div class="secaoComentarios" id="secaoComentarios">
                     <div class="tituloSecaoComentarios">
                         <h1>Comentários da Comunidade</h1>
                         <button class="btnModal" onclick="abrirModal()">Entrar na Conversa</button>
-                    </div>
-                    <div class="cardComentario">
-                        <h1 class="autorComentario">
-                            s0cramax
-                        </h1>
-                        <p class="mensagemComentario">
-                            RL é FODA!
-                        </p>
                     </div>
                 </div>
             </div>

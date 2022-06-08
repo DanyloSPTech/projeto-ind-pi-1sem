@@ -15,7 +15,7 @@ function listarComentariosMateria(fkMateria){
   console.log("ACESSEI O COMENTARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNEREFUSED'.\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarComentariosMateria():", fkMateria);
 
   var instrucao = `
-    SELECT username, texto, Usuario.jogo FROM Usuario INNER JOIN Mensagem ON Usuario.idUsuario = Mensagem.fkUsuario INNER JOIN Materia ON Mensagem.fkMateria = Materia.idMateria WHERE idMateria = ${fkMateria};
+    SELECT username, texto, Usuario.jogo FROM Usuario INNER JOIN Mensagem ON Usuario.idUsuario = Mensagem.fkUsuario INNER JOIN Materia ON Mensagem.fkMateria = Materia.idMateria WHERE idMateria = ${fkMateria} ORDER BY idMensagem;
   `;
 
   console.log("Executando a instrução SQL: \n" + instrucao);
