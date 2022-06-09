@@ -8,7 +8,10 @@ function cadastrar(){
     var csenha = inpConfirmarSenha.value;
     var email = inpEmail.value;
     var dataNasc = inpDtNasc.value;
+    var organizacao = slcOrg.value;
     var jogo = slcJogo.value;
+
+    var txtOrganizacao = '';
 
     var cadastroValido = true;
 
@@ -36,23 +39,40 @@ function cadastrar(){
         alert("Informe sua data de nascimento!");
         cadastroValido = false;
     }
+    if(organizacao == 0){
+        alert("Você não informou uma organização para simpatizar!");
+    }else{
+        if(organizacao == 1){
+            txtOrganizacao = 'Fúria';
+        }
+        if(organizacao == 2){
+            txtOrganizacao = 'mibr';
+        }
+        if(organizacao == 3){
+            txtOrganizacao = 'paiN Gaming';
+        }
+        if(organizacao == 4){
+            txtOrganizacao = 'LOUD';
+        }
+        if(organizacao == 5){
+            txtOrganizacao = 'INTZ';
+        }
+        if(organizacao == 6){
+            txtOrganizacao = 'RED Canids';
+        }
+        if(organizacao == 7){
+            txtOrganizacao = 'Black Dragons';
+        }
+        if(organizacao == 8){
+            txtOrganizacao = 'LOS GRANDES';
+        }
+        if(organizacao == 9){
+            txtOrganizacao = 'Fluxo';
+        }
+    }
     if(jogo == 0){
         alert("Informe um jogo de preferência!");
         cadastroValido = false;
-    }else{
-        if(jogo == 1){
-            jogo = 'Counter-Strike: Global Offensive';
-        }else if(jogo == 2){
-            jogo = 'Valorant';
-        }else if(jogo == 3){
-            jogo = 'League of Legends';
-        }else if(jogo == 4){
-            jogo = 'Rainbow Six';
-        }else if(jogo == 5){
-            jogo = 'Rocket League';
-        }else{
-            jogo = 'INVALIDO';
-        }
     }
 
     if(cadastroValido){
@@ -79,6 +99,7 @@ function cadastrar(){
                     emailServer: email,
                     senhaServer: senha,
                     dataNascServer: dataNasc,
+                    organizacaoServer: txtOrganizacao,
                     jogoServer: jogo
                 })
             }).then(function (resposta) {
@@ -478,6 +499,9 @@ function carregarComentarios(){
 
         if(resposta.ok){
             resposta.json().then(function (resposta){
+
+                secaoComentarios.innerHTML = '';
+
                 console.log("Comentários Recebidos: ", JSON.stringify(resposta));
                 for(var i = 0; i < resposta.length; i++){
                     var comentario = resposta[i];
@@ -511,4 +535,30 @@ function carregarComentarios(){
         console.log(`#ERRO: ${resposta}`);
     });
 
+}
+
+function listarJogos (){
+    fetch("/jogos/listar").then(function (resposta) {
+        if(resposta.ok){
+            if(resposta.status == 204){
+                alert("NENHUM JOGO CADASTRADO!");
+            }
+            resposta.json().then(function (resposta){
+                console.log("Jogos recebidos: ", JSON.stringify(resposta));
+
+                var slcJogos = document.getElementById("slcJogo");
+
+                for(var i = 0; resposta.length > 0; i++){
+                    var jogo = resposta[i];
+
+                    var option = document.createElement("option");
+
+                    option.innerHTML = `${jogo.nome}`;
+                    option.value = `${jogo.idJogo}`;
+
+                    slcJogos.appendChild(option);
+                }
+            })
+        }
+    })
 }

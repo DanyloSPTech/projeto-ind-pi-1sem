@@ -7,7 +7,7 @@
         <title>Document</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <body>
+    <body onload="listarJogos()">
         <div class="navBar">
             <div class="container">
                 <a href="index.html"><h1>Portal e+sport</h1></a>
@@ -58,11 +58,21 @@
                     <p id="txtSlcJogo">Selecione o jogo que você mais gosta de acompanhar</p>
                     <select id="slcJogo" class="slcJogo">
                         <option value="0">-- Selecione Uma Opção --</option>
-                        <option value="1">Counter-Strike: Global Offensive</option>
-                        <option value="2">Valorant</option>
-                        <option value="3">League of Legends</option>
-                        <option value="4">Rainbow Six</option>
-                        <option value="5">Rocket League</option>
+                    </select>
+                </div>
+                <div class="colunaCadastro campoSelect">
+                    <p id="txtSlcOrg">Selecione a organização que você mais simpatiza (Opcional)</p>
+                    <select id="slcOrg" class="slcJogo">
+                        <option value="0">-- Selecione Uma Opção --</option>
+                        <option value="1">Fúria</option>
+                        <option value="2">mibr</option>
+                        <option value="3">paiN Gaming</option>
+                        <option value="4">LOUD</option>
+                        <option value="5">INTZ</option>
+                        <option value="6">RED Canids</option>
+                        <option value="7">Black Dragons</option>
+                        <option value="8">LOS GRANDES</option>
+                        <option value="9">Fluxo</option>
                     </select>
                 </div>
                 <div class="colunaCadastro">
