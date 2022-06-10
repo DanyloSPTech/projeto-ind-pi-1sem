@@ -16,6 +16,23 @@ function listar(req, res){
     );
 }
 
+function cadastrar(req, res){
+    var nome = req.body.nome;
+    var tipo = req.body.tipo;
+    var dataLancamento = req.body.dataLancamentoJogo;
+
+    console.log("SOCORRO" + dataLancamento);
+
+    jogoModel.cadastrar(nome, tipo, dataLancamento).then(function (resultado){
+        res.json(resultado);
+    }).catch(function (erro){
+        console.log(erro);
+        console.log("\nHouve um erro ao realizar o cadastro do novo jogo! Erro: ",erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
-    listar
+    listar,
+    cadastrar
 }

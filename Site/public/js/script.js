@@ -1,5 +1,7 @@
 // const res = require("express/lib/response");
 
+const res = require("express/lib/response");
+
 // Validações Campos de Cadastro
 function cadastrar(){
     var nickname = inpUsername.value;
@@ -222,20 +224,6 @@ function cadastrarJornalista(){
     if(jogo == 0){
         alert("Informe um jogo de preferência!");
         cadastroValido = false;
-    }else{
-        if(jogo == 1){
-            jogo = 'Counter-Strike: Global Offensive';
-        }else if(jogo == 2){
-            jogo = 'Valorant';
-        }else if(jogo == 3){
-            jogo = 'League of Legends';
-        }else if(jogo == 4){
-            jogo = 'Rainbow Six';
-        }else if(jogo == 5){
-            jogo = 'Rocket League';
-        }else{
-            jogo = 'INVALIDO';
-        }
     }
 
     if(cadastroValido){
@@ -269,7 +257,7 @@ function cadastrarJornalista(){
                 console.log("resposta: ", resposta);
     
                 if (resposta.ok) {
-                    window.location = "login.html";
+                    alert("Jornalista cadastrado com sucesso!");
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
@@ -561,4 +549,67 @@ function listarJogos (){
             })
         }
     })
+}
+
+function cadastrarJogo(){
+    var nome = inpNomeJogo.value;
+    var tipo = Number(slcJogo.value);
+    var dataLancamento = inpDtLanc.value;
+
+    var cadastroValido = true;
+
+    var nomeGenero = '';
+
+    if(nome == ''){
+        alert("Informe um nome para o jogo!");
+        cadastroValido = false;
+    }
+    if(tipo == 0){
+        alert("Informe um gênero de jogo válido!");
+        cadastroValido = false;
+    }else if(tipo == 1){
+        nomeGenero = 'FPS';
+    }else if(tipo == 2){
+        nomeGenero = 'MOBA';
+    }else if(tipo == 3){
+        nomeGenero = 'Battle Royale';
+    }else if(tipo == 4){
+        nomeGenero = 'Fight Games';
+    }else if(tipo == 5){
+        nomeGenero= 'RTS';
+    }else{
+        alert("Opção Inválida!");
+        cadastroValido = false;
+    }
+    if(dataLancamento == ''){
+        alert("Informe uma data de lançamento!");
+        cadastroValido = false;
+    }
+
+    console.log(dataLancamento);
+
+    if(cadastroValido){
+        fetch("/jogos/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nome: nome,
+                tipo: nomeGenero,
+                dataLancamentoJogo: dataLancamento
+            })
+        }).then(function (resposta){
+            console.log("resposta: ", resposta);
+
+            if(resposta.ok) {
+                alert("Cadastro de jogo realizado com sucesso!");
+            }else {
+                throw("Houve um erro ao tentar realizar o cadastro de um novo jogo");
+            }
+        }).catch(function (resposta){
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
 }

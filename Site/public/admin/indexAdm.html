@@ -15,11 +15,12 @@
                     <h3>Administrador</h3>
                 </div>
                 <ul>
-                    <li>Dashboard</li>
-                    <li>Cadastrar Jornalista</li>
+                    <a href="indexAdm.html"><li>Dashboard</li></a>
+                    <a href="cadastroJornalista.html"><li>Cadastrar Jornalista</li></a>
+                    <a href="cadastroJogo.html"><li>Cadastrar Jogo</li></a>
                     <li>Lista Usuários</li>
                 </ul>
-                <button>Sair</button>
+                <button onclick="sairAdm()">Sair</button>
             </div>
             <div class="conteudoAdm">
                 <div class="areaKpi">
@@ -58,4 +59,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../js/graficoDash.js"></script>
+<script src="../js/sairAdm.js"></script>
 <script src="../js/carregarKpis.js"></script>

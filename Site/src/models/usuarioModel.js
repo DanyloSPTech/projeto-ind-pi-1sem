@@ -35,7 +35,7 @@ function cadastrarJornalista(username, nome, email, senha, dataNasc, jogo){
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha, username, jogo, dataNasc);
 
     var instrucao = `
-        INSERT INTO Usuario (username, nome, email, senha, dataNasc, jogo, nivelAcesso) VALUES ('${username}', '${nome}', '${email}', '${senha}', '${dataNasc}', '${jogo}', 2);
+        INSERT INTO Usuario (username, nome, email, senha, dataNasc, fkJogo, nivelAcesso) VALUES ('${username}', '${nome}', '${email}', '${senha}', '${dataNasc}', ${jogo}, 2);
     `;
 
     console.log("Executando a instrução SQL: \n " + instrucao);

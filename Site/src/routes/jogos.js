@@ -7,4 +7,8 @@ router.get("/listar", function (req, res){
     jogoController.listar(req, res);
 });
 
+router.post("/cadastrar", function (req, res){
+    jogoController.cadastrar(req, res);
+});
+
 module.exports = router;

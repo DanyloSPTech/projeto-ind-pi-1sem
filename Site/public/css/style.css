@@ -713,6 +713,11 @@ a:hover{
     width: 85%;
 }
 
+.inpCadastroJogo{
+    height: 40px;
+    width: 100%;
+}
+
 .slcJogo{
     width: 95%;
     padding: 10px;
@@ -759,9 +764,12 @@ a:hover{
 }
 
 .menuLateral ul{
+    display: flex;
+    flex-direction: column;
     list-style: none;
     align-items: center;
     justify-content: center;
+    padding: 0;
 }
 
 .menuLateral li{
@@ -797,6 +805,10 @@ a:hover{
     font-weight: 400;
     font-size: 20px;
     color: #0c0f22;
+}
+
+.menuLateral button:hover{
+    cursor: pointer;
 }
 
 .areaKpi{
@@ -868,7 +880,7 @@ a:hover{
 /* Inicio Cadastro Jornalista */
 
 .bannerCadastroJornalista{
-    background-image: url('../images/bgCadastroJornalista.jpeg');
+    background-image: url('../images/bgJornalista.jpg');
     background-position-x: center;
     background-position-y: center;
     display: flex;
@@ -896,3 +908,19 @@ a:hover{
 }
 
 /* Fim Nova Materia */
+
+/* Inicio Tela Cadastro Jogo */
+
+.bannerCadastroJogo{
+    background-image: url('../images/bgJogo.jpg');
+    background-position-x: center;
+    background-position-y: center;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+/* Fim Tela Cadastro Jogo */
