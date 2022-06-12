@@ -148,6 +148,7 @@ function logar(){
 
                     sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.USERNAME = json.username;
                     sessionStorage.NIVEL_ACESSO = json.nivelAcesso;
                  
                     var nivelAcesso = Number(sessionStorage.getItem('NIVEL_ACESSO'));
@@ -477,6 +478,11 @@ function carregarComentarios(){
                     var comentario = resposta[i];
 
                     var divCard = document.createElement("div");
+                    var divAreaAutor = document.createElement("div");
+                    var divNomeAutor = document.createElement("div");
+                    var divSuporte = document.createElement("div");
+                    var pSuporte = document.createElement("p");
+                    var logoOrg = document.createElement("img");
                     var h1Card = document.createElement("h1");
                     var pCard = document.createElement("p");
 
@@ -484,17 +490,153 @@ function carregarComentarios(){
                     pCard.innerHTML = comentario.texto;
 
                     divCard.className = "cardComentario";
+                    divAreaAutor.className = "areaAutor";
+                    divNomeAutor.className = "nomeAutor";
                     h1Card.className = "autorComentario";
                     pCard.className = "mensagemComentario";
 
-                    divCard.appendChild(h1Card);
-                    divCard.appendChild(pCard);
+                    if(comentario.organizacao == 'Fúria'){
+                        pSuporte.innerHTML = 'Suporte:';
+                        logoOrg.src = "../images/logoFuria.png";
+                        
+                        divSuporte.className = "suporte";
+                        pSuporte.className = "mensagemComentario";
 
-                    secaoComentarios.appendChild(divCard);
+                        divNomeAutor.appendChild(h1Card);
+                        divSuporte.appendChild(pSuporte);
+                        divSuporte.appendChild(logoOrg);
+                        divAreaAutor.appendChild(divNomeAutor);
+                        divAreaAutor.appendChild(divSuporte);
+                        divCard.appendChild(divAreaAutor);
+                        divCard.appendChild(pCard);
+                        secaoComentarios.appendChild(divCard);
+                    }else if(comentario.organizacao == 'mibr'){
+                        pSuporte.innerHTML = 'Suporte:';
+                        logoOrg.src = "../images/logoMibr.png";
+                        
+                        divSuporte.className = "suporte";
+                        pSuporte.className = "mensagemComentario";
 
-                    console.log(comentario.username);
-                    console.log(comentario.texto);
-                    console.log(comentario.jogo);
+                        divNomeAutor.appendChild(h1Card);
+                        divSuporte.appendChild(pSuporte);
+                        divSuporte.appendChild(logoOrg);
+                        divAreaAutor.appendChild(divNomeAutor);
+                        divAreaAutor.appendChild(divSuporte);
+                        divCard.appendChild(divAreaAutor);
+                        divCard.appendChild(pCard);
+                        secaoComentarios.appendChild(divCard);
+                    }else if(comentario.organizacao == 'LOUD'){
+                        pSuporte.innerHTML = 'Suporte:';
+                        logoOrg.src = "../images/logoLoud.png";
+                        
+                        divSuporte.className = "suporte";
+                        pSuporte.className = "mensagemComentario";
+
+                        divNomeAutor.appendChild(h1Card);
+                        divSuporte.appendChild(pSuporte);
+                        divSuporte.appendChild(logoOrg);
+                        divAreaAutor.appendChild(divNomeAutor);
+                        divAreaAutor.appendChild(divSuporte);
+                        divCard.appendChild(divAreaAutor);
+                        divCard.appendChild(pCard);
+                        secaoComentarios.appendChild(divCard);
+                    }else if(comentario.organizacao == 'INTZ'){
+                        pSuporte.innerHTML = 'Suporte:';
+                        logoOrg.src = "../images/logoIntz.png";
+                        
+                        divSuporte.className = "suporte";
+                        pSuporte.className = "mensagemComentario";
+
+                        divNomeAutor.appendChild(h1Card);
+                        divSuporte.appendChild(pSuporte);
+                        divSuporte.appendChild(logoOrg);
+                        divAreaAutor.appendChild(divNomeAutor);
+                        divAreaAutor.appendChild(divSuporte);
+                        divCard.appendChild(divAreaAutor);
+                        divCard.appendChild(pCard);
+                        secaoComentarios.appendChild(divCard);
+                    }else if(comentario.organizacao == 'paiN Gaming'){
+                        pSuporte.innerHTML = 'Suporte:';
+                        logoOrg.src = "../images/logoPain.png";
+                        
+                        divSuporte.className = "suporte";
+                        pSuporte.className = "mensagemComentario";
+
+                        divNomeAutor.appendChild(h1Card);
+                        divSuporte.appendChild(pSuporte);
+                        divSuporte.appendChild(logoOrg);
+                        divAreaAutor.appendChild(divNomeAutor);
+                        divAreaAutor.appendChild(divSuporte);
+                        divCard.appendChild(divAreaAutor);
+                        divCard.appendChild(pCard);
+                        secaoComentarios.appendChild(divCard);
+                    }else if(comentario.organizacao == 'Fluxo'){
+                        pSuporte.innerHTML = 'Suporte:';
+                        logoOrg.src = "../images/logoFluxo.png";
+                        
+                        divSuporte.className = "suporte";
+                        pSuporte.className = "mensagemComentario";
+
+                        divNomeAutor.appendChild(h1Card);
+                        divSuporte.appendChild(pSuporte);
+                        divSuporte.appendChild(logoOrg);
+                        divAreaAutor.appendChild(divNomeAutor);
+                        divAreaAutor.appendChild(divSuporte);
+                        divCard.appendChild(divAreaAutor);
+                        divCard.appendChild(pCard);
+                        secaoComentarios.appendChild(divCard);
+                    }else if(comentario.organizacao == 'RED Canids'){
+                        pSuporte.innerHTML = 'Suporte:';
+                        logoOrg.src = "../images/logoRed.png";
+                        
+                        divSuporte.className = "suporte";
+                        pSuporte.className = "mensagemComentario";
+
+                        divNomeAutor.appendChild(h1Card);
+                        divSuporte.appendChild(pSuporte);
+                        divSuporte.appendChild(logoOrg);
+                        divAreaAutor.appendChild(divNomeAutor);
+                        divAreaAutor.appendChild(divSuporte);
+                        divCard.appendChild(divAreaAutor);
+                        divCard.appendChild(pCard);
+                        secaoComentarios.appendChild(divCard);
+                    }else if(comentario.organizacao == 'Black Dragons'){
+                        pSuporte.innerHTML = 'Suporte:';
+                        logoOrg.src = "../images/logoBlack.png";
+                        
+                        divSuporte.className = "suporte";
+                        pSuporte.className = "mensagemComentario";
+
+                        divNomeAutor.appendChild(h1Card);
+                        divSuporte.appendChild(pSuporte);
+                        divSuporte.appendChild(logoOrg);
+                        divAreaAutor.appendChild(divNomeAutor);
+                        divAreaAutor.appendChild(divSuporte);
+                        divCard.appendChild(divAreaAutor);
+                        divCard.appendChild(pCard);
+                        secaoComentarios.appendChild(divCard);
+                    }else if(comentario.organizacao == 'LOS GRANDES'){
+                        pSuporte.innerHTML = 'Suporte:';
+                        logoOrg.src = "../images/logoLos.png";
+                        
+                        divSuporte.className = "suporte";
+                        pSuporte.className = "mensagemComentario";
+
+                        divNomeAutor.appendChild(h1Card);
+                        divSuporte.appendChild(pSuporte);
+                        divSuporte.appendChild(logoOrg);
+                        divAreaAutor.appendChild(divNomeAutor);
+                        divAreaAutor.appendChild(divSuporte);
+                        divCard.appendChild(divAreaAutor);
+                        divCard.appendChild(pCard);
+                        secaoComentarios.appendChild(divCard);
+                    }else{
+                        divNomeAutor.appendChild(h1Card);
+                        divAreaAutor.appendChild(divNomeAutor);
+                        divCard.appendChild(divAreaAutor);
+                        divCard.appendChild(pCard);
+                        secaoComentarios.appendChild(divCard);
+                    }
                 }
             });
             

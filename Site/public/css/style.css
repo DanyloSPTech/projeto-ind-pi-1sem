@@ -21,6 +21,8 @@ a:hover{
     justify-content: center;
     align-items: center;
     background-color: #0c0f22;
+    position: sticky;
+    top: 0px;
 }
 
 .container{
@@ -87,7 +89,7 @@ a:hover{
 }
 
 .barraMenu{
-    height: 60px;
+    height: 50px;
     width: 3px;
     background-color: #FFFFFF;
 }
@@ -278,9 +280,8 @@ a:hover{
 
 .areaNoticia{
     display: flex;
-    width: 65%;
+    width: 90%;
     flex-direction: column;
-    margin-right: 150px;
 }
 
 .areaNoticia h1{
@@ -320,12 +321,17 @@ a:hover{
     justify-content: center;
     align-items: center;
     border: solid #0c0f22 2px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .tituloSecaoComentarios h1{
     color: #FFFFFF;
     font-family: 'Inria Sans';
     font-size: 36px;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .cardComentario{
@@ -338,7 +344,6 @@ a:hover{
 }
 
 .autorComentario{
-    border-bottom: solid #0c0f22 2px;
     color: #FFFFFF;
     font-family: 'Inria Sans';
     margin: 0;
@@ -407,17 +412,44 @@ a:hover{
     border-radius: 8px;
 }
 
+.areaAutor{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid #0c0f22 2px;
+}
+
+.areaAutor img{
+    margin-left: 5px;
+    height: 30px;
+    width: auto;
+}
+
+.nomeAutor{
+    display: flex;
+}
+
+.suporte{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 15px;
+}
+
 .btnModal{
     border-radius: 12px;
     background-color: #FFFFFF;
     border: 2px solid #0c0f22;
     height: auto;
-    width: 130px;
+    width: 200px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-family: 'Inria Sans';
     font-weight: 400;
     font-size: 20px;
     color: #0c0f22;
-    margin-top: 12px;
+    margin-top: 5px;
 }
 
 .spnClose{
@@ -939,6 +971,22 @@ a:hover{
     justify-content: center;
     align-items: center;
     background-size: cover;
+}
+
+.footer{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    height: 80px;
+    background-color: #0c0f22;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer h1{
+    font-family: 'Inria Sans';
+    color: #FFFFFF;
+    font-size: 18px;
 }
 
 /* Fim Tela Cadastro Jogo */
