@@ -8,20 +8,20 @@ function testar(req, res) {
 function criarMateria(req, res){
     var titulo = req.body.titulo;
     var corpo = req.body.corpo;
-    var jogo = req.body.jogo;
+    var fkJogo = req.body.fkJogo;
     var fkJornalista = req.body.fkJornalista;
 
     if(titulo == undefined){
         res.status(400).send("Seu titulo está undefined!");
     }else if(corpo == undefined){
         res.status(400).send("Seu corpo está undefined!");
-    }else if(jogo == undefined){
+    }else if(fkJogo == undefined){
         res.status(400).send("Seu jogo está undefined!");
     }else if(fkJornalista == undefined){
         res.status(400).send("Seu jornalista está undefined!");
     }else{
 
-        materiaModel.novaMateria(titulo, corpo, jogo, fkJornalista)
+        materiaModel.novaMateria(titulo, corpo, fkJogo, fkJornalista)
             .then(
                 function(resultado){
                     res.json(resultado);

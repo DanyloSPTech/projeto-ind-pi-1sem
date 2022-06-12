@@ -7,7 +7,7 @@
         <title>Document</title>
         <link rel="stylesheet" href="../css/style.css">
     </head>
-    <body>
+    <body onload="listarJogos()">
         <div class="navBar">
             <div class="container">
                 <h1 href="../index.html">Portal e+sport</h1>
@@ -33,11 +33,6 @@
                 <p id="txtSlcJogo">Essa matéria cobre qual jogo?</p>
                 <select id="slcJogo" class="slcJogo">
                     <option value="0">-- Selecione Uma Opção --</option>
-                    <option value="1">Counter-Strike: Global Offensive</option>
-                    <option value="2">Valorant</option>
-                    <option value="3">League of Legends</option>
-                    <option value="4">Rainbow Six</option>
-                    <option value="5">Rocket League</option>
                 </select>
                 
                 <button onclick="publicarMateria()">Publicar</button>

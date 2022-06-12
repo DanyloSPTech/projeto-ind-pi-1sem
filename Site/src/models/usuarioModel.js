@@ -75,6 +75,14 @@ function contarJornalista(){
     return database.executar(instrucao);
 }
 
+function contarFansOrg(){
+    var instrucao = `
+        SELECT organizacao, COUNT(organizacao) AS 'qtdeFans' FROM Usuario GROUP BY organizacao ORDER BY qtdeFans DESC;
+    `;
+    console.log("Executando a instrução SQL: \n " + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -83,5 +91,6 @@ module.exports = {
     contarJogo,
     contarUsuario,
     contarJornalista,
-    jogoDestaque
+    jogoDestaque,
+    contarFansOrg
 };

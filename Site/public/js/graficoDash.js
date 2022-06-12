@@ -46,7 +46,7 @@
 //             pessoasR6,
 //             pessoasRl
 //           ];
-          
+
 //           const data = {
 //               labels: jogos,
 //               datasets: [{
@@ -61,7 +61,7 @@
 //                 hoverOffset: 4
 //               }]
 //             };
-          
+
 //             const config = {
 //               type: 'doughnut',
 //               data: data,
@@ -94,78 +94,124 @@ const orgs = [
   'RED Canids',
   'Black Dragons',
   'LOS GRANDES',
-  'Fluxo'
+  'Fluxo',
+  'Users sem Org'
 ];
 
-var fanFuria = 30;
-var fanMibr = 17;
-var fanPain = 59;
-var fanLoud = 74;
-var fanIntz = 4;
-var fanRed = 21;
-var fanBlack = 8;
-var fanLos = 33;
-var fanFluxo = 28;
+var fanFuria = 0;
+var fanMibr = 0;
+var fanPain = 0;
+var fanLoud = 0;
+var fanIntz = 0;
+var fanRed = 0;
+var fanBlack = 0;
+var fanLos = 0;
+var fanFluxo = 0;
+var usersnull = 0;
 
-const dadosGrafico = [
-  fanFuria,
-  fanMibr,
-  fanPain,
-  fanLoud,
-  fanIntz,
-  fanRed,
-  fanBlack,
-  fanLos,
-  fanFluxo
-];
+fetch("/usuarios/contarFansOrg").then(function (resposta) {
+  if (resposta.ok) {
+    if (resposta == 204) {
+      alert("RESULTADO VAZIO!");
+    }
+    resposta.json().then(function (resposta) {
+      console.log("Dados Recebidos: ", JSON.stringify(resposta));
+      for(var i = 0; i < resposta.length; i++){
+        var dadosOrg = resposta[i];
+
+        if(dadosOrg.organizacao == 'Fúria'){
+          fanFuria = dadosOrg.qtdeFans;
+        }else if(dadosOrg.organizacao == 'mibr'){
+          fanMibr = dadosOrg.qtdeFans;
+        }else if(dadosOrg.organizacao == 'paiN Gaming'){
+          fanPain = dadosOrg.qtdeFans;
+        }else if(dadosOrg.organizacao == 'LOUD'){
+          fanLoud = dadosOrg.qtdeFans;
+        }else if(dadosOrg.organizacao == 'INTZ'){
+          fanIntz = dadosOrg.qtdeFans;
+        }else if(dadosOrg.organizacao == 'RED Canids'){
+          fanRed = dadosOrg.qtdeFans;
+        }else if(dadosOrg.organizacao == 'Black Dragons'){
+          fanBlack = dadosOrg.qtdeFans;
+        }else if(dadosOrg.organizacao == 'LOS GRANDES'){
+          fanLos = dadosOrg.qtdeFans;
+        }else if(dadosOrg.organizacao == 'Fluxo'){
+          fanFluxo = dadosOrg.qtdeFans;
+        }else{
+          usersnull = dadosOrg.qtdeFans;
+        }
+
+      }
+      const dadosGrafico = [
+        fanFuria,
+        fanMibr,
+        fanPain,
+        fanLoud,
+        fanIntz,
+        fanRed,
+        fanBlack,
+        fanLos,
+        fanFluxo,
+        usersnull
+      ];
+
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: 'Fãs Por Organização',
+          data: dadosGrafico,
+          backgroundColor: [
+            '#222526',
+            '#305FB3',
+            '#B3312C',
+            '#37F043',
+            '#D6F4FB',
+            '#FA2F29',
+            '#666461',
+            '#D9572B',
+            '#9A50B3',
+            '#AD9E44'
+          ],
+          borderColor: [
+            '#101112',
+            '#1F3E73',
+            '#641E1A',
+            '#2A7335',
+            '#829599',
+            '#C8221D',
+            '#42413F',
+            '#B86013',
+            '#462552',
+            '#73682D'
+          ],
+          borderWidth: 1
+        }]
+      };
+      
+      const config = {
+        type: 'bar',
+        data: data,
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          aspectRatio: 3,
+          scales: {
+            y: {
+              min: 0,
+            }
+          },
+          layout: {
+            padding: 20
+          }
+        },
+      };
+      
+      const graficoDash = new Chart(
+        document.getElementById('canvasGrafico'),
+        config
+      );
+    })
+  }
+})
 
 const labels = orgs;
-const data = {
-  labels: labels,
-  datasets: [{
-    label: 'Fãs Por Organização',
-    data: dadosGrafico,
-    backgroundColor: [
-      '#222526',
-      '#305FB3',
-      '#B3312C',
-      '#43B353',
-      '#D6F4FB',
-      '#FA2F29',
-      '#666461',
-      '#B36643',
-      '#9A50B3'
-    ],
-    borderColor: [
-      '#101112',
-      '#1F3E73',
-      '#641E1A',
-      '#2A7335',
-      '#829599',
-      '#C8221D',
-      '#42413F',
-      '#B86013',
-      '#462552'
-    ],
-    borderWidth: 1
-  }]
-};
-
-const config = {
-  type: 'bar',
-  data: data,
-  options: {
-    responsive: true,
-    maintainAspectRatio: true,
-    scales: {
-      y:{
-        min: 0
-      }
-    }
-  },
-};
-
-const graficoDash = new Chart(
-  document.getElementById('canvasGrafico'),
-  config
-);

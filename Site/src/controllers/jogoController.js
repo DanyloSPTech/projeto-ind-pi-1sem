@@ -32,7 +32,37 @@ function cadastrar(req, res){
     });
 }
 
+function listarJogosAparicoes(req, res){
+    jogoModel.listarJogosAparicoes().then(function (resposta){
+        if(resposta.length > 0){
+            res.status(200).json(resposta);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!");
+        }
+    }).catch(function (erro){
+        console.log(erro);
+        console.log("\nHouve um erro ao listar os jogos e suas aparições! Erro: ",erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function contarJogos(req, res){
+    jogoModel.contarJogos().then(function (resposta){
+        if(resposta.length > 0){
+            res.status(200).json(resposta);
+        }else{
+            res.status(204).send("Nenhum resultado encontrado!");
+        }
+    }).catch(function (erro){
+        console.log(erro);
+        console.log("\nHouve um erro ao contar a quantidade de jogos cadastrados! Erro: ",erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    })
+}
+
 module.exports = {
     listar,
-    cadastrar
+    cadastrar,
+    listarJogosAparicoes,
+    contarJogos
 }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="navBar">
+            <div class="container">
+                <a href="index.html"><h1>Portal e+sport</h1></a>
+                <div class="barraMenu"></div>
+                <ul class="listaMenu">
+                    <li class="itemMenu">Notícias</li>
+                    <li class="itemMenu">Eventos</li>
+                    <li class="itemMenu">Ranking</li>
+                </ul>
+                <a href="login.html" id="btnDeslogado1"><button class="btnLogin">Login</button></a>
+                <a href="cadastro.html" id="btnDeslogado2"><button class="btnCadastro">Cadastre-se</button></a>
+                <p id="nomeUserLogado" style="display: none;"></p>
+                <!--- Ajustes Necessários no btnDeslogar -->
+                <button id="btnDeslogar" style="display: none;" class="btnCadastro" onclick="deslogar()">Sair</button>
+            </div>
+        </div>
+        <div class="corpoMateria">
+            <div class="container">
+                <div class="tableTopicos">
+                    <div class="tableTopicosTitulo">
+                        <h1>Ranking da Comunidade</h1>
+                    </div>
+                    <div class="cedulaTopico">
+                        <p>1º</p>
+                        <img src="images/logoLoud.png" id="imgOrg1">
+                        <p class="nomeOrg" id="nomeOrg1">Loud</p>
+                    </div>
+                    <div class="cedulaTopico">
+                        <p>2º</p>
+                        <img src="images/logoFuria.png" id="imgOrg2">
+                        <p class="nomeOrg" id="nomeOrg2">Fúria</p>
+                    </div>
+                    <div class="cedulaTopico">
+                        <p>3º</p>
+                        <img src="images/logoIntz.png" id="imgOrg3">
+                        <p class="nomeOrg" id="nomeOrg3">INTZ</p>
+                    </div>
+                    <div class="cedulaTopico">
+                        <p>4º</p>
+                        <img src="images/logoPain.png" id="imgOrg4">
+                        <p class="nomeOrg" id="nomeOrg4">paiN Gaming</p>
+                    </div>
+                    <div class="cedulaTopico">
+                        <p>5º</p>
+                        <img src="images/logoMibr.png" id="imgOrg5">
+                        <p class="nomeOrg" id="nomeOrg5">mibr</p>
+                    </div>
+                    <div class="cedulaTopico">
+                        <p>6º</p>
+                        <img src="images/logoRed.png" id="imgOrg6">
+                        <p class="nomeOrg" id="nomeOrg6">RED Canids</p>
+                    </div>
+                    <div class="cedulaTopico">
+                        <p>7º</p>
+                        <img src="images/logoBlack.png" id="imgOrg7">
+                        <p class="nomeOrg" id="nomeOrg7">Black Dragons</p>
+                    </div>
+                    <div class="cedulaTopico">
+                        <p>8º</p>
+                        <img src="images/logoLos.png" id="imgOrg8">
+                        <p class="nomeOrg" id="nomeOrg8">Los Grandes</p>
+                    </div>
+                    <div class="cedulaTopico">
+                        <p>9º</p>
+                        <img src="images/logoFluxo.png" id="imgOrg9">
+                        <p class="nomeOrg" id="nomeOrg9">Fluxo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modalNovoComentario" style="display: none" id="modalComentario">
+                <span class="spnClose" onclick="fecharModal()"></span>
+                <p class="tituloModal">
+                    Participe da discussão:
+                </p>
+                <div class="container">
+                    <p class="labelModal">
+                        Mensagem:
+                    </p>
+                    <textarea id="inpModal"></textarea>
+                    <button class="btnComentar" onclick="novoComentario()">Comentar</button>
+                </div>
+            </div>
+            <div class="container areaComentarios">
+                <div class="tituloSecaoComentarios">
+                    <h1>Comentários da Comunidade</h1>
+                    <button class="btnModal" onclick="abrirModal()">Entrar na Conversa</button>
+                </div>
+                <div class="secaoComentarios" id="secaoComentarios">
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script src="js/acesso.js"></script>
+<script src="js/ranking.js"></script>

@@ -1,7 +1,5 @@
 // const res = require("express/lib/response");
 
-const res = require("express/lib/response");
-
 // Validações Campos de Cadastro
 function cadastrar(){
     var nickname = inpUsername.value;
@@ -289,20 +287,6 @@ function publicarMateria(){
         alert("Erro na identificação do jornalista!");
     }else {
 
-        if(jogo == 1){
-            jogo = 'Counter-Strike: Global Offensive';
-        }else if(jogo == 2){
-            jogo = 'Valorant';
-        }else if(jogo == 3){
-            jogo = 'League of Legends';
-        }else if(jogo == 4){
-            jogo = 'Rainbow Six';
-        }else if(jogo == 5){
-            jogo = 'Rocket League';
-        }else{
-            jogo = 'INVALIDO';
-        }
-
         fetch("/materia/novaMateria", {
             method: "POST",
             headers: {
@@ -311,7 +295,7 @@ function publicarMateria(){
             body: JSON.stringify({
                 titulo: titulo,
                 corpo: corpo,
-                jogo: jogo,
+                fkJogo: jogo,
                 fkJornalista: fkJornalista,
             })
         }).then(function (resposta) {
@@ -358,7 +342,7 @@ function listarMaterias(){
 
                     titulo.innerHTML = `${materia.titulo}`;
                     autor.innerHTML = `De: ${materia.nome}`;
-                    jogo.innerHTML = `Jogo: ${materia.jogo}`;
+                    jogo.innerHTML = `Jogo: ${materia.nomeJogo}`;
 
                     cedula.className = "cedulaNoticia";
                     conteudoDireita.className = "conteudoDireita";
@@ -436,7 +420,6 @@ function fecharModal(){
 }
 
 function novoComentario(){
-    var titulo = "EXCLUIR COLUNA";
     var mensagem = inpModal.value;
     var fkMateria = sessionStorage.getItem('ID_MATERIA');
     var fkUsuario = sessionStorage.getItem('ID_USUARIO');
@@ -450,7 +433,6 @@ function novoComentario(){
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                titulo: titulo,
                 texto: mensagem,
                 fkMateria: fkMateria,
                 fkUsuario: fkUsuario

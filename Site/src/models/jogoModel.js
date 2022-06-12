@@ -19,7 +19,25 @@ function cadastrar(nome, tipo, dataLancamento){
     return database.executar(instrucao);
 }
 
+function listarJogosAparicoes(){
+    var instrucao = `
+        SELECT Jogo.nome, COUNT(fkJogo) AS 'qtdeAparicoes' FROM Jogo INNER JOIN Usuario ON Jogo.idJogo = Usuario.fkJogo WHERE Usuario.nivelAcesso = 1 GROUP BY Jogo.nome;
+    `;
+    console.log("Executando a instrução SQL: \n", + instrucao);
+    return database.executar(instrucao);
+}
+
+function contarJogos(){
+    var instrucao = `
+        SELECT COUNT(idJogo) AS 'qtdeJogos' FROM Jogo;
+    `;
+    console.log("Executando a instrução SQL: \n", + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     listar,
-    cadastrar
+    cadastrar,
+    listarJogosAparicoes,
+    contarJogos
 }

@@ -1,42 +1,60 @@
-fetch("/usuarios/jogoDestaque").then(function (resposta) {
-    if(resposta.ok){
-        if(resposta == 204){
-            //CONSERTAR AQ
+fetch("/jogos/listarJogosAparicoes").then(function (resposta) {
+    if (resposta.ok) {
+        if (resposta.status == 204) {
+            alert("NENHUM JOGO CADASTRADO!");
         }
         resposta.json().then(function (resposta) {
-            console.log("Jogos e seus usuários recebidos: ", JSON.stringify(resposta));
-  
-            var jogoDestaque = '';
-            var QtdeAparicoes = 0;
-            for(i = 0; i < resposta.length; i++){
+            console.log("Resultados Obtidos KPI 3 e 4: ", JSON.stringify(resposta));
+
+            var jogoF = '';
+            var qtdeAparicoesJogo = 0;
+
+            for (var i = 0; i < resposta.length; i++) {
+
                 var jogo = resposta[i];
-                if(jogo.QtdeAparicoes > QtdeAparicoes){
-                    jogoDestaque = jogo.jogo;
-                    QtdeAparicoes = jogo.QtdeAparicoes;
+
+                if (jogo.qtdeAparicoes > qtdeAparicoesJogo) {
+                    jogoF = jogo.nome;
+                    qtdeAparicoesJogo = jogo.qtdeAparicoes;
                 }
+
             }
 
-            var kpiJogoDestaque = document.getElementById("txtKpiJogoDestaque");
-            var kpiInteressadosJogo = document.getElementById("txtKpiInteressadosJogo");
-            kpiJogoDestaque.innerHTML = `${jogoDestaque}`;
-            kpiInteressadosJogo.innerHTML = `${QtdeAparicoes} Usuários`;
-        });
-    }else{
-        throw ('Houve um erro na API!');
+            txtKpiJogoDestaque.innerHTML = jogoF;
+            txtKpiInteressadosJogo.innerHTML = `${qtdeAparicoesJogo} Usuários`;
+        })
     }
-  }).catch(function (resposta) {
-    console.error(resposta);
-  });
+})
+
+fetch("/jogos/contarJogos").then(function (resposta) {
+    if (resposta.ok) {
+        if (resposta.status == 204) {
+            alert("NENHUM JOGO CADASTRADO!");
+        }
+        resposta.json().then(function (resposta) {
+            console.log("Resultados Obtidos KPI 2: ", JSON.stringify(resposta));
+
+            for (var i = 0; i < resposta.length; i++) {
+
+                var jogo = resposta[i];
+
+                txtQtdeJogos.innerHTML = jogo.qtdeJogos;
+
+            }
+
+        })
+    }
+})
 
 fetch("/usuarios/contarUsuario").then(function (resposta) {
-    if(resposta.ok){
-        if(resposta == 204){
+    if (resposta.ok) {
+        if (resposta == 204) {
             //CONSERTAR AQ
         }
         resposta.json().then(function (resposta) {
             console.log("Usuarios recebidos: ", JSON.stringify(resposta));
-  
-            for(var i = 0; i < resposta.length; i++){
+
+            for (var i = 0; i < resposta.length; i++) {
                 var usuario = resposta[i];
 
                 var QtdeUsuarios = usuario.QtdeUsuarios;
@@ -45,33 +63,37 @@ fetch("/usuarios/contarUsuario").then(function (resposta) {
             var msgQtdeUsuarios = document.getElementById("txtQtdeUsuarios");
             msgQtdeUsuarios.innerHTML = `${QtdeUsuarios}`;
         });
-    }else{
+    } else {
         throw ('Houve um erro na API!');
     }
 }).catch(function (resposta) {
     console.error(resposta);
 });
 
-fetch("/usuarios/contarJornalista").then(function (resposta) {
-    if(resposta.ok){
-        if(resposta == 204){
-            //CONSERTAR AQ
-        }
-        resposta.json().then(function (resposta) {
-            console.log("Jornalistas recebidos: ", JSON.stringify(resposta));
-  
-            for(var i = 0; i < resposta.length; i++){
-                var jornalista = resposta[i];
 
-                var QtdeJornalista = jornalista.QtdeJornalistas;
-            }
 
-            var msgQtdeJornalistas = document.getElementById("txtQtdeJornalistas");
-            msgQtdeJornalistas.innerHTML = `${QtdeJornalista}`;
-        });
-    }else{
-        throw ('Houve um erro na API!');
-    }
-}).catch(function (resposta) {
-    console.error(resposta);
-});
+
+// Função Antiga - Não é Usada na Nova Versão!
+// fetch("/usuarios/contarJornalista").then(function (resposta) {
+//     if (resposta.ok) {
+//         if (resposta == 204) {
+//             //CONSERTAR AQ
+//         }
+//         resposta.json().then(function (resposta) {
+//             console.log("Jornalistas recebidos: ", JSON.stringify(resposta));
+
+//             for (var i = 0; i < resposta.length; i++) {
+//                 var jornalista = resposta[i];
+
+//                 var QtdeJornalista = jornalista.QtdeJornalistas;
+//             }
+
+//             var msgQtdeJornalistas = document.getElementById("txtQtdeJornalistas");
+//             msgQtdeJornalistas.innerHTML = `${QtdeJornalista}`;
+//         });
+//     } else {
+//         throw ('Houve um erro na API!');
+//     }
+// }).catch(function (resposta) {
+//     console.error(resposta);
+// });

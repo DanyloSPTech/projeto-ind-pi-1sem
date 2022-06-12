@@ -458,7 +458,7 @@ a:hover{
 /* Inicio Tabela Topicos */
 
 .tableTopicos{
-    width: 30%;
+    width: 40%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -484,6 +484,21 @@ a:hover{
     background-color: #202542;
     border: solid #0c0f22 2px;
     height: 40px;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.cedulaTopico p{
+    margin-left: 20px;
+    color: #FFFFFF;
+    font-family: 'Inria Sans';
+    font-size: 23px;
+}
+
+.cedulaTopico img{
+    margin-left: 20px;
+    height: 30px;
+    width: auto;
 }
 
 /* Fim Tabela Topicos */
@@ -927,3 +942,9 @@ a:hover{
 }
 
 /* Fim Tela Cadastro Jogo */
+
+/* Inicio Tela Ranking */
+
+
+
+/* Fim Tela Ranking */

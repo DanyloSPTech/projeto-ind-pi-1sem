@@ -27,6 +27,10 @@ router.get("/contarJornalista", function (req, res){
     usuarioController.contarJornalista(req, res);
 });
 
+router.get("/contarFansOrg", function(req, res){
+    usuarioController.contarFansOrg(req, res);
+});
+
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
