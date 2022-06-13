@@ -179,7 +179,11 @@ function logarAdm(){
     if(codIdentificao == '' || senha == ''){
         alert('Informe todos os campos para prosegguir');
     }else if(codIdentificao == '1337' && senha == 'sucodeuva'){
-        window.location = 'cadastroJornalista.html';
+        window.location = 'indexAdm.html';
+        sessionStorage.NOME_USUARIO = 'ADM';
+        sessionStorage.ID_USUARIO = 0;
+        sessionStorage.USERNAME = 'The Boss';
+        sessionStorage.NIVEL_ACESSO = 3;
     }else{
         alert('CREDENCIAIS INVÁLIDAS!');
     }
@@ -348,10 +352,14 @@ function listarMaterias(){
                     cedula.className = "cedulaNoticia";
                     conteudoDireita.className = "conteudoDireita";
 
+                    autor.id = `${materia.idMateria}`;
+                    jogo.id = `${materia.idMateria}`;
+
                     conteudoDireita.appendChild(autor);
                     conteudoDireita.appendChild(jogo);
 
                     titulo.id = `${materia.idMateria}`;
+                    conteudoDireita.id = `${materia.idMateria}`;
                     cedula.appendChild(titulo);
                     cedula.appendChild(conteudoDireita);
                     cedula.id = `${materia.idMateria}`;
@@ -779,4 +787,86 @@ function cadastrarEvento(){
         console.log(`#ERRO: ${resposta}`);
     });
 
+}
+
+function listarEventos(){
+    fetch("/eventos/listar").then(function (resposta){
+        if(resposta.ok){
+            if(resposta.status == 204){
+                alert("Nenhum Evento Cadastrado!");
+            }
+            resposta.json().then(function (resposta){
+                console.log("Eventos Recebidos: ", JSON.stringify(resposta));
+
+                var areaEventos = document.getElementById("container");
+
+                for(var i = 0; i < 5 && i < resposta.length; i++){
+                    var evento = resposta[i];
+
+                    var cardEvento = document.createElement("div");
+                    var divTituloEvento = document.createElement("div");
+                    var tituloEvento = document.createElement("h1");
+                    var conteudoEvento = document.createElement("div");
+                    var conteudoTopoEvento = document.createElement("div");
+                    var jogoEvento = document.createElement("h3");
+                    var conteudoBaixoEvento = document.createElement("div");
+                    var conteudoEventoEsq = document.createElement("div");
+                    var conteudoEventoDir = document.createElement("div");
+                    var dataInicioEvento = document.createElement("h3");
+                    var dataFimEvento = document.createElement("h3");
+                    var participantesEvento = document.createElement("h3");
+                    var premiacaoEvento = document.createElement("h3");
+
+                    tituloEvento.innerHTML = `${evento.nomeEvento}`;
+                    jogoEvento.innerHTML = `Jogo: ${evento.nomeJogo}`;
+
+                    //Transformando data para formato DD/MM/AAAA
+                    var dataCompInicio = new Date(evento.dataInicio);
+
+                    var anoI = dataCompInicio.getFullYear();
+                    var mesI = dataCompInicio.getMonth() + 1;
+                    var diaI = dataCompInicio.getDate();
+
+                    var dataCompletaI = `${diaI}/${mesI}/${anoI}`;
+
+                    dataInicioEvento.innerHTML = `Data Início: ${dataCompletaI}`;
+
+                    var dataCompFim = new Date(evento.dataFim);
+
+                    var anoF = dataCompFim.getFullYear();
+                    var mesF = dataCompFim.getMonth() + 1;
+                    var diaF = dataCompFim.getDate();
+
+                    var dataCompletaF = `${diaF}/${mesF}/${anoF}`;
+
+                    dataFimEvento.innerHTML = `Data Fim: ${dataCompletaF}`;
+                    participantesEvento.innerHTML = `Participantes: ${evento.qtdeEquipes}`;
+                    premiacaoEvento.innerHTML = `Premiação: $ ${evento.premiacao}`;
+
+                    cardEvento.className = 'cardEvento';
+                    divTituloEvento.className = 'divTituloEvento';
+                    conteudoEvento.className = 'conteudoEvento';
+                    conteudoTopoEvento.className = 'conteudoTopoEvento';
+                    conteudoBaixoEvento.className = 'conteudoBaixoEvento';
+                    conteudoEventoEsq.className = 'conteudoEventoEsq';
+                    conteudoEventoDir.className = 'conteudoEventoDir';
+
+                    divTituloEvento.appendChild(tituloEvento);
+                    conteudoTopoEvento.appendChild(jogoEvento);
+                    conteudoEventoEsq.appendChild(dataInicioEvento);
+                    conteudoEventoEsq.appendChild(dataFimEvento);
+                    conteudoEventoDir.appendChild(participantesEvento);
+                    conteudoEventoDir.appendChild(premiacaoEvento);
+                    conteudoBaixoEvento.appendChild(conteudoEventoEsq);
+                    conteudoBaixoEvento.appendChild(conteudoEventoDir);
+                    conteudoEvento.appendChild(conteudoTopoEvento);
+                    conteudoEvento.appendChild(conteudoBaixoEvento);
+                    cardEvento.appendChild(divTituloEvento);
+                    cardEvento.appendChild(conteudoEvento);
+
+                    areaEventos.appendChild(cardEvento);
+                }
+            })
+        }
+    })
 }

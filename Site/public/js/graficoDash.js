@@ -158,7 +158,7 @@ fetch("/usuarios/contarFansOrg").then(function (resposta) {
       const data = {
         labels: labels,
         datasets: [{
-          label: 'Fãs Por Organização',
+          label: 'Fãs da Organização',
           data: dadosGrafico,
           backgroundColor: [
             '#222526',
