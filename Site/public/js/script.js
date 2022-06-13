@@ -737,3 +737,46 @@ function cadastrarJogo(){
     }
 
 }
+
+function cadastrarEvento(){
+
+    var nome = inpNomeEvento.value;
+    var fkJogo = Number(slcJogo.value);
+    var dataInicio = inpDtInicio.value;
+    var dataFim = inpDtFim.value;
+    var qtdeEquipes = Number(inpQtdeEquipes.value);
+    var premiacao = Number(inpPremiacao.value);
+
+    fetch("/eventos/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nome: nome,
+            fkJogo: fkJogo,
+            dataInicio: dataInicio,
+            dataFim: dataFim,
+            qtdeEquipes: qtdeEquipes,
+            premiacao: premiacao
+        })
+    }).then(function (resposta){
+        console.log("Resposta cadastro evento: ", resposta);
+
+        if(resposta.ok){
+            alert("Evento cadastrado com sucesso!");
+
+            inpNomeEvento.value = '';
+            slcJogo.value = 0;
+            inpDtInicio.value = '';
+            inpDtFim.value = '';
+            inpQtdeEquipes.value = '';
+            inpPremiacao.value = '';
+        }else{
+            throw("Houve um erro ao tentar cadastrar um novo evento!");
+        }
+    }).catch(function (resposta){
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+}

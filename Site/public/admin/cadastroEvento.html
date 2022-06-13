@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body onload="listarJogos()">
+
+        <div class="corpoAdm">
+            <div class="menuLateral">
+                <div class="tituloMenuLateral">
+                    <h1>Portal e+sport</h1>
+                    <h3>Administrador</h3>
+                </div>
+                <ul>
+                    <a href="indexAdm.html"><li>Dashboard</li></a>
+                    <a href="cadastroJornalista.html"><li>Cadastrar Jornalista</li></a>
+                    <a href="cadastroJogo.html"><li>Cadastrar Jogo</li></a>
+                    <a href="cadastroEvento.html"><li>Cadastrar Evento</li></a>
+                    <li>Lista Usuários</li>
+                </ul>
+                <button onclick="sairAdm()">Sair</button>
+            </div>
+            <div class="conteudoAdm">
+                <div class="bannerCadastroEvento">
+                    <div class="cardCadastro">
+                        <h1>Cadastrar Evento</h1>
+                        <div class="colunaCadastro campoSelect">
+                            <!-- <div class="campoColunaCadastro"> -->
+                                <p>Nome:</p>
+                                <input id="inpNomeEvento" placeholder="Ex: PGL Stockholm Major 2022">
+                            <!-- </div> -->
+                        </div>
+                        <div class="colunaCadastro campoSelect">
+                            <p id="txtSlcJogo">Selecione o jogo do evento:</p>
+                            <select id="slcJogo" class="slcJogo">
+                                <option value="0">-- Selecione Uma Opção --</option>
+                            </select>
+                        </div>
+                        <div class="colunaCadastro">
+                            <div class="campoColunaCadastro">
+                                <p>Data de Inicio</p>
+                                <input id="inpDtInicio" type="date">
+                            </div>
+                            <div class="campoColunaCadastro">
+                                <p>Data de Finalização</p>
+                                <input id="inpDtFim" type="date">
+                            </div>
+                        </div>
+                        <div class="colunaCadastro">
+                            <div class="campoColunaCadastro">
+                                <p>Quantidade Participantes:</p>
+                                <input id="inpQtdeEquipes" placeholder="Ex: 16">
+                            </div>
+                            <div class="campoColunaCadastro">
+                                <p>Premiação:</p>
+                                <input id="inpPremiacao" placeholder="Ex: 1000000">
+                            </div>
+                        </div>
+                        <div class="colunaCadastro">
+                            <button onclick="cadastrarEvento()">Cadastro</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
+
+<script src="../js/sairAdm.js"></script>
+<script src="../js/script.js"></script>

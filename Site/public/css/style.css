@@ -996,3 +996,19 @@ a:hover{
 
 
 /* Fim Tela Ranking */
+
+/* Inicio Tela Cadastro Evento */
+
+.bannerCadastroEvento{
+    background-image: url('../images/bgEvento.jpg');
+    background-position-x: center;
+    background-position-y: center;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+/* Fim Tela Cadastro Evento */
