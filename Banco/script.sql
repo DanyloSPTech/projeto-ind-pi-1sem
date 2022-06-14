@@ -24,7 +24,7 @@ CREATE TABLE Usuario (
 
 CREATE TABLE Materia (
 	idMateria INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR (30) NOT NULL,
+    titulo VARCHAR (90) NOT NULL,
     corpo VARCHAR (2726) NOT NULL,
     fkJornalista INT,
     fkJogo INT,
