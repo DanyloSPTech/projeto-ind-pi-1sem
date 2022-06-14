@@ -4,5 +4,6 @@ var username = sessionStorage.getItem('USERNAME');
 var nivelacesso = sessionStorage.getItem('NIVEL_ACESSO');
 
 if(nomeuser != 'ADM' || iduser != 0 || username != 'The Boss' || nivelacesso != 3){
+    sessionStorage.clear();
     window.location = '../index.html';
 }

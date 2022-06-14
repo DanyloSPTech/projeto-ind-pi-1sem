@@ -94,8 +94,7 @@ const orgs = [
   'RED Canids',
   'Black Dragons',
   'LOS GRANDES',
-  'Fluxo',
-  'Users sem Org'
+  'Fluxo'
 ];
 
 var fanFuria = 0;
@@ -151,8 +150,7 @@ fetch("/usuarios/contarFansOrg").then(function (resposta) {
         fanRed,
         fanBlack,
         fanLos,
-        fanFluxo,
-        usersnull
+        fanFluxo
       ];
 
       const data = {
@@ -169,8 +167,7 @@ fetch("/usuarios/contarFansOrg").then(function (resposta) {
             '#FA2F29',
             '#666461',
             '#D9572B',
-            '#9A50B3',
-            '#AD9E44'
+            '#9A50B3'
           ],
           borderColor: [
             '#101112',
@@ -181,8 +178,7 @@ fetch("/usuarios/contarFansOrg").then(function (resposta) {
             '#C8221D',
             '#42413F',
             '#B86013',
-            '#462552',
-            '#73682D'
+            '#462552'
           ],
           borderWidth: 1
         }]
