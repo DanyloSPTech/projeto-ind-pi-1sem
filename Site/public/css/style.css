@@ -309,7 +309,7 @@ a:hover{
 /* Inicio Tabela Noticias */
 
 .tableNoticias{
-    width: 65%;
+    width: 85%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -356,7 +356,7 @@ a:hover{
     color: #FFFFFF;
     font-family: 'Inria Sans';
     font-weight: 400;
-    font-size: 30px;
+    font-size: 22px;
     margin: 0;
     margin-left: 25px;
     margin-top: 10px;
