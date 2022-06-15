@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Portal e+sport | Cadastrar Jogo</title>
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body onload="sentinelaAdm()">
@@ -20,7 +20,6 @@
                     <a href="cadastroJornalista.html"><li>Cadastrar Jornalista</li></a>
                     <a href="cadastroJogo.html"><li>Cadastrar Jogo</li></a>
                     <a href="cadastroEvento.html"><li>Cadastrar Evento</li></a>
-                    <li>Lista Usuários</li>
                 </ul>
                 <button onclick="sairAdm()">Sair</button>
             </div>
@@ -43,9 +42,11 @@
                                 <option value="5">RTS</option>
                             </select>
                         </div>
-                        <div class="colunaCadastro campoColunaCadastro">
-                            <p>Data de Lançamento</p>
-                            <input id="inpDtLanc" type="date">
+                        <div class="colunaCadastro">
+                            <div class="campoColunaCadastro">
+                                <p>Data de Lançamento</p>
+                                <input id="inpDtLanc" type="date">
+                            </div>
                         </div>
                         <div class="colunaCadastro">
                             <button onclick="cadastrarJogo()">Cadastro</button>
@@ -61,3 +62,4 @@
 <script src="../js/sairAdm.js"></script>
 <script src="../js/script.js"></script>
 <script src="../js/sentinelaAdm.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

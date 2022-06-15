@@ -16,31 +16,55 @@ function cadastrar(){
     var cadastroValido = true;
 
     if(nickname == ''){
-        alert("Informe um nickname!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe um nickname!'
+        });
         cadastroValido = false;
     }
     if(nome == ''){
-        alert("Informe um nome!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe um nome!'
+        });
         cadastroValido = false;
     }
     if(senha == ''){
-        alert("Informe uma senha!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe uma senha!'
+        });
         cadastroValido = false;
     }
     if(csenha == ''){
-        alert("Você precisa confirmar a senha!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Você precisa confirmar sua senha!'
+        });
         cadastroValido = false;
     }
     if(email == ''){
-        alert("Informe um email!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe um email!'
+        });
         cadastroValido = false;
     }
     if(dataNasc == ''){
-        alert("Informe sua data de nascimento!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe sua data de nascimento!'
+        });
         cadastroValido = false;
     }
     if(organizacao == 0){
-        alert("Você não informou uma organização para simpatizar!");
+        alert("Atenção! você não escolheu uma organização para simpatizar!");
     }else{
         if(organizacao == 1){
             txtOrganizacao = 'Fúria';
@@ -71,18 +95,30 @@ function cadastrar(){
         }
     }
     if(jogo == 0){
-        alert("Informe um jogo de preferência!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe um jogo de preferência!'
+        });
         cadastroValido = false;
     }
 
     if(cadastroValido){
         if(senha != csenha){
-            alert("As senhas não correspondem!");
+            Swal.fire({
+                icon: 'error',
+                title: 'Campo inválido!',
+                text: 'As senhas não correspondem!'
+            });
             cadastroValido = false;
         }
         // Corrigir bug que inválida email com . antes da @
-        if(email.indexOf("@") == -1 || email.indexOf(".") == -1 || email.indexOf(".") < email.indexOf("@")){
-            alert("Email Inválido!");
+        if(email.indexOf("@") == -1 || email.indexOf(".") == -1){
+            Swal.fire({
+                icon: 'error',
+                title: 'Campo inválido!',
+                text: 'Email inválido!'
+            });
             cadastroValido = false;
         }
         if(cadastroValido){
@@ -124,9 +160,17 @@ function logar(){
 
 
     if (emailVar == '' || passVar == ''){
-        alert("Preencha todos os campos!");
-    }else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1 || emailVar.indexOf(".") < emailVar.indexOf("@")){
-        alert("Email inválido!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Preencha todos os campos!'
+        });
+    }else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1){
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Email inválido!'
+        });
     }else {
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -162,7 +206,11 @@ function logar(){
                 });
 
             } else {
-                alert("Auntenticação Falhou!");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Autenticação Falhou!',
+                    text: 'Confira se você preencheu suas credenciais corretamente'
+                });
             }
 
             }).catch(function (erro) {
@@ -177,7 +225,11 @@ function logarAdm(){
     var senha = inpSenhaAdm.value;
 
     if(codIdentificao == '' || senha == ''){
-        alert('Informe todos os campos para prosegguir');
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe todos os campos para prosseguir!'
+        });
     }else if(codIdentificao == '1337' && senha == 'sucodeuva'){
         window.location = 'indexAdm.html';
         sessionStorage.NOME_USUARIO = 'ADM';
@@ -185,7 +237,11 @@ function logarAdm(){
         sessionStorage.USERNAME = 'The Boss';
         sessionStorage.NIVEL_ACESSO = 3;
     }else{
-        alert('CREDENCIAIS INVÁLIDAS!');
+        Swal.fire({
+            icon: 'error',
+            title: 'Autenticação Falhou!',
+            text: 'Confira se você preencheu suas credenciais corretamente'
+        });
     }
 }
 
@@ -201,42 +257,78 @@ function cadastrarJornalista(){
     var cadastroValido = true;
 
     if(nickname == ''){
-        alert("Informe um nickname!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo Inválido!',
+            text: 'Informe um nickname!'
+        });
         cadastroValido = false;
     }
     if(nome == ''){
-        alert("Informe um nome!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo Inválido!',
+            text: 'Informe um nome!'
+        });
         cadastroValido = false;
     }
     if(senha == ''){
-        alert("Informe uma senha!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo Inválido!',
+            text: 'Informe uma senha!'
+        });
         cadastroValido = false;
     }
     if(csenha == ''){
-        alert("Você precisa confirmar a senha!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo Inválido!',
+            text: 'Você precisa confirmar a senha!'
+        });
         cadastroValido = false;
     }
     if(email == ''){
-        alert("Informe um email!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo Inválido!',
+            text: 'Informe um email!'
+        });
         cadastroValido = false;
     }
     if(dataNasc == ''){
-        alert("Informe sua data de nascimento!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo Inválido!',
+            text: 'Informe a data de nascimento do jornalista!'
+        });
         cadastroValido = false;
     }
     if(jogo == 0){
-        alert("Informe um jogo de preferência!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo Inválido!',
+            text: 'Informe um jogo para o jornalista cobrir!'
+        });
         cadastroValido = false;
     }
 
     if(cadastroValido){
         if(senha != csenha){
-            alert("As senhas não correspondem!");
+            Swal.fire({
+                icon: 'error',
+                title: 'Atenção!',
+                text: 'As senhas não correspondem!'
+            });
             cadastroValido = false;
         }
         // Corrigir bug que inválida email com . antes da @
-        if(email.indexOf("@") == -1 || email.indexOf(".") == -1 || email.indexOf(".") < email.indexOf("@")){
-            alert("Email Inválido!");
+        if(email.indexOf("@") == -1 || email.indexOf(".") == -1){
+            Swal.fire({
+                icon: 'error',
+                title: 'Atenção!',
+                text: 'Email inválido!'
+            });
             cadastroValido = false;
         }
         if(cadastroValido){
@@ -260,7 +352,11 @@ function cadastrarJornalista(){
                 console.log("resposta: ", resposta);
     
                 if (resposta.ok) {
-                    alert("Jornalista cadastrado com sucesso!");
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sucesso!',
+                        text: 'Jornalista cadastrado com sucesso!'
+                    });
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
@@ -283,13 +379,29 @@ function publicarMateria(){
     var fkJornalista = Number(sessionStorage.getItem('ID_USUARIO'));
 
     if(titulo == ''){
-        alert("Informe um titulo para a matéria!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe um título para a matéria!'
+        });
     }else if(corpo == ''){
-        alert("Informe um corpo para a matéria!");
-    }else if(jogo == ''){
-        alert("Informe um jogo para a matéria!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Escreva a matéria no campo de texto!'
+        });
+    }else if(jogo == 0){
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe o jogo que a matéria cobre!'
+        });
     }else if(fkJornalista == 0){
-        alert("Erro na identificação do jornalista!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro de seção!',
+            text: 'Jornalista não identificado!'
+        });
     }else {
 
         fetch("/materia/novaMateria", {
@@ -308,7 +420,11 @@ function publicarMateria(){
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                alert("MATERIA PUBLICADA!");
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sucesso!',
+                    text: 'Matéria publicada com sucesso!'
+                });
                 inpTituloMateria.value = '';
                 corpoMateria.value = '';
                 slcJogo.value = 0;
@@ -489,7 +605,7 @@ function novoComentario(){
     var fkUsuario = sessionStorage.getItem('ID_USUARIO');
 
     if(fkUsuario == undefined || fkUsuario == 0){
-        alert("Apenas usuáios logados podem comentar!");
+        alert("Apenas usuários logados podem comentar!");
     }else{
         fetch("/comentarios/comentar", {
             method: "POST",
@@ -748,11 +864,19 @@ function cadastrarJogo(){
     var nomeGenero = '';
 
     if(nome == ''){
-        alert("Informe um nome para o jogo!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe um nome para o jogo!'
+        });
         cadastroValido = false;
     }
     if(tipo == 0){
-        alert("Informe um gênero de jogo válido!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe um gênero de jogo válido!'
+        });
         cadastroValido = false;
     }else if(tipo == 1){
         nomeGenero = 'FPS';
@@ -765,11 +889,19 @@ function cadastrarJogo(){
     }else if(tipo == 5){
         nomeGenero= 'RTS';
     }else{
-        alert("Opção Inválida!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Opção inválida!'
+        });
         cadastroValido = false;
     }
     if(dataLancamento == ''){
-        alert("Informe uma data de lançamento!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo inválido!',
+            text: 'Informe uma data de lançamento!'
+        });
         cadastroValido = false;
     }
 
@@ -790,7 +922,11 @@ function cadastrarJogo(){
             console.log("resposta: ", resposta);
 
             if(resposta.ok) {
-                alert("Cadastro de jogo realizado com sucesso!");
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sucesso!',
+                    text: 'Jogo cadastrado com sucesso!'
+                });
             }else {
                 throw("Houve um erro ao tentar realizar o cadastro de um novo jogo");
             }
@@ -827,7 +963,11 @@ function cadastrarEvento(){
         console.log("Resposta cadastro evento: ", resposta);
 
         if(resposta.ok){
-            alert("Evento cadastrado com sucesso!");
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso!',
+                text: 'Evento cadastrado com sucesso!'
+            });
 
             inpNomeEvento.value = '';
             slcJogo.value = 0;

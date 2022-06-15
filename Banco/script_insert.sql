@@ -63,8 +63,6 @@ INSERT INTO Usuario (username, nome, email, senha, dataNasc, organizacao, nivelA
             ('Roque Marques', 'Roque Marques', 'roque@gmail.com', '123', '1985-12-10', NULL, 2, 1),
             ('Luis Showtana', 'Luis Carlos', 'luis@gmail.com', '123', '1992-06-05', NULL, 2, 2);
             
-SELECT * FROM Usuario;
-            
 INSERT INTO Materia (titulo, corpo, fkJornalista, fKJogo)
 	VALUES ('Mix vence "paiN Academy" e fatura Cash Cup', 'A ESEA Cash Cup voltou a agitar o cenário sul-americano neste sábado. 0001 conquistou a 9ª edição do torneio semanal após vencer a MEGAZORD, time que representará a paiN Academy, por 2 a 0 na grande final.
 
@@ -139,6 +137,7 @@ Diante do resultado positivo do fim de semana, o AD Carry admite que não espera
 Com duas vitórias no primeiro fim de semana, num total de nove, a FURIA busca manter o ritmo para já se firmar como uma das grandes forças desta Fase Regular. Vale lembrar, apesar de seis times se classificarem aos playoffs, o Top4 ganha uma sobrevida no mata-mata, no Upper Bracket.', 50, 2);
 
 INSERT INTO Evento (nome, dataInicio, dataFim, qtdeEquipes, premiacao, fkJogo)
-	VALUES ('IEM Cologne', '2022-07-05', '2022-07-17', 24, 1000000, 1),
+	VALUES ('VCT Challengers Brasil', '2022-03-07', '2022-06-26', 10, 100000, 5),
 			('CBLOL 2º Split', '2022-06-04', '2022-09-03', 10, 25000, 2),
-            ('VCT Challengers Brasil', '2022-03-07', '2022-06-26', 10, 100000, 5);
+            ('IEM Cologne', '2022-07-05', '2022-07-17', 24, 1000000, 1);
+            
